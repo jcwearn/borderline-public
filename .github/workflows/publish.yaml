@@ -8,7 +8,7 @@ on:
 
 jobs:
   publish:
-    uses: jcwearn/workflows/.github/workflows/public-sync.yaml@main
+    uses: jcwearn/workflows/.github/workflows/public-sync.yaml@f86d82f0e2a8cd5d73a15bfafdfe613e9526a3a4 # main
     with:
       target-repo: jcwearn/borderline-public
       readme-override: .github/public-README.md
