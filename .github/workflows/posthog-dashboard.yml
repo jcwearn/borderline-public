@@ -43,7 +43,7 @@ jobs:
 
       # As in ci.yml: the script imports .ts directly and runs on
       # --experimental-strip-types, so the Node version is load-bearing.
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
         with:
           node-version-file: '.node-version'
 
