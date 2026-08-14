@@ -1,0 +1,38 @@
+{
+  "2026-08-11": {
+    "start": "TJK",
+    "end": "ARM",
+    "best": 3,
+    "par": 4,
+    "closed": [
+      "AFG"
+    ]
+  },
+  "2026-08-12": {
+    "start": "MRT",
+    "end": "UKR",
+    "best": 6,
+    "par": 7
+  },
+  "2026-08-13": {
+    "start": "KGZ",
+    "end": "BIH",
+    "best": 6,
+    "par": 7,
+    "closed": [
+      "ROU",
+      "HUN",
+      "SVK",
+      "UKR"
+    ]
+  },
+  "2026-08-14": {
+    "start": "HRV",
+    "end": "ARM",
+    "best": 4,
+    "par": 5,
+    "closed": [
+      "BGR"
+    ]
+  }
+}

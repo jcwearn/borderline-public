@@ -1,0 +1,83 @@
+:root {
+  --bg: #0b1020;
+  --bg-panel: #141a30;
+  --bg-input: #1b2340;
+  --border: #2a3355;
+  --text: #e8ecf8;
+  --text-dim: #8f9ac0;
+  --accent: #5ad1a0;
+  --accent-dim: #2f7a5e;
+  --start: #f2b134;
+  --end: #f076b2;
+  --miss: #e2645c;
+
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  color-scheme: dark;
+  color: var(--text);
+  background-color: var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+#root {
+  height: 100%;
+  /* The small viewport: the height the page has while the browser's chrome is
+     fully shown, and the only one of the three that never moves. `100%` gets
+     the same answer today, but only because the body cannot scroll, which is a
+     side effect rather than a promise. `dvh` would be the real mistake — it
+     tracks the URL bar sliding away, and the globe is a canvas sized in pixels
+     off a ResizeObserver, so every frame of that animation would reallocate a
+     drawing buffer. */
+  height: 100svh;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--bg-input);
+  border-radius: 8px;
+  padding: 0.5rem 0.9rem;
+}
+
+button:hover:not(:disabled) {
+  border-color: var(--accent-dim);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+input {
+  font: inherit;
+  color: inherit;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+}
+
+input:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}

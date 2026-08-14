@@ -1,0 +1,100 @@
+[
+  {
+    "link": ["AUS", "PNG"],
+    "kind": "strait",
+    "from": [-13.5, 142.6],
+    "to": [-7.8, 142.3],
+    "basis": "Torres Strait, Cape York to the Papua New Guinea coast near Mabudauan. Saibai Island sits about 4 km off that coast, with treaty-protected traditional movement across it daily. Papua New Guinea already reaches Indonesia by land, so this is what brings Australia into the world."
+  },
+  {
+    "link": ["BHS", "USA"],
+    "kind": "ferry",
+    "from": [24.5, -77.8],
+    "to": [26.7, -80.8],
+    "basis": "Balearia Caribbean, Fort Lauderdale to Bimini and Freeport. Scheduled, year-round, international passenger service."
+  },
+  {
+    "link": ["CUB", "HTI"],
+    "kind": "strait",
+    "from": [20.4, -75.2],
+    "to": [19.6, -72.5],
+    "basis": "Windward Passage, Punta Maisi to Mole-Saint-Nicolas, about 80 km. Regularly crossed, though not by a scheduled passenger service."
+  },
+  {
+    "link": ["CUB", "JAM"],
+    "kind": "dormant",
+    "from": [20.2, -76.7],
+    "to": [18.1, -77.3],
+    "basis": "Cabo Cruz to Montego Bay, about 140 km across the Cayman Trench. No scheduled passenger service currently runs. Included so Jamaica is playable; the honest reading is that this is a crossing rather than a route."
+  },
+  {
+    "link": ["CUB", "MEX"],
+    "kind": "dormant",
+    "from": [22.4, -83.7],
+    "to": [20.7, -88.4],
+    "basis": "Yucatan Channel, Cabo San Antonio to Cabo Catoche, about 210 km. Havana to Progreso has operated on and off and does not run today. This is the shortest way off Cuba to the mainland, and it is what attaches the Greater Antilles to the Americas."
+  },
+  {
+    "link": ["CYP", "TUR"],
+    "kind": "ferry",
+    "from": [35.1, 33.4],
+    "to": [36.9, 34.2],
+    "basis": "Girne to Tasucu, daily and year-round — the only reliable scheduled service to the island. Girne is in Northern Cyprus, so this link encodes a contested political fact. Limassol to Piraeus is the neutral alternative and has been intermittent for decades; the choice here was deliberate."
+  },
+  {
+    "link": ["DNK", "ISL"],
+    "kind": "ferry",
+    "from": [56.4, 9.5],
+    "to": [64.9, -18.6],
+    "basis": "Smyril Line's Norrona, Hirtshals to Seydisfjordur by way of the Faroes. Scheduled international car ferry, seasonal in frequency rather than in existence."
+  },
+  {
+    "link": ["FRA", "GBR"],
+    "kind": "fixed",
+    "from": [49.7, 2.6],
+    "to": [51.3, -0.5],
+    "basis": "Channel Tunnel, Calais to Dover, open since 1994. A fixed rail link running year-round, alongside the ferries on the same crossing."
+  },
+  {
+    "link": ["IND", "LKA"],
+    "kind": "ferry",
+    "from": [11.0, 78.7],
+    "to": [7.9, 80.8],
+    "basis": "Palk Strait, Rameswaram to Talaimannar, about 30 km. Service resumed in 2023. This is the pair the build already carried as a known one-way claim, dropped for being maritime; here it becomes a real link."
+  },
+  {
+    "link": ["JPN", "KOR"],
+    "kind": "ferry",
+    "from": [32.8, 130.8],
+    "to": [36.0, 128.0],
+    "basis": "Fukuoka to Busan across the Tsushima Strait. Scheduled, year-round, and among the busiest international ferry routes in Asia."
+  },
+  {
+    "link": ["MDG", "MOZ"],
+    "kind": "dormant",
+    "from": [-17.5, 45.4],
+    "to": [-15.3, 39.5],
+    "basis": "Mozambique Channel, Mahajanga to Nacala, about 640 km. Freight crosses it; no scheduled passenger service does. The only crossing that makes Madagascar playable at all."
+  },
+  {
+    "link": ["MYS", "PHL"],
+    "kind": "ferry",
+    "from": [5.4, 117.0],
+    "to": [7.5, 122.5],
+    "basis": "Sandakan to Zamboanga across the Sulu Sea. Scheduled, though suspended at times for security."
+  },
+  {
+    "link": ["RUS", "USA"],
+    "kind": "strait",
+    "from": [66.0, 175.0],
+    "to": [64.0, -152.0],
+    "basis": "Bering Strait, Cape Dezhnev to Cape Prince of Wales, about 82 km, with the Diomede Islands 3.8 km apart in the middle. No scheduled service of any kind. Included deliberately: it is the single link that makes the Americas and the rest of the world one board, and without it half the map can never meet the other half."
+  },
+  {
+    "link": ["TTO", "VEN"],
+    "kind": "ferry",
+    "from": [10.5, -61.3],
+    "to": [10.4, -63.1],
+    "basis": "Bocas del Dragon, Port of Spain to Guiria, about 11 km. Scheduled and intermittently suspended."
+  }
+]

@@ -1,0 +1,19 @@
+name = "borderline"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-01-01"
+
+# Deliberately no [vars] block.
+#
+# Anything here is uploaded with the deployment, so ALLOW_DATE_OVERRIDE lived in
+# exactly the wrong place: it would have shipped to production and let anyone
+# read the rest of the year out of /api/daily?date=. It belongs in .dev.vars,
+# which is gitignored and stays on this machine.
+#
+# ?date= is not ?d=. Every browser sends ?d=, its own calendar date, so the
+# round can turn over at the player's midnight rather than at UTC's; the Worker
+# honours it only for the two or three dates the world is actually on, so the
+# most it ever reveals is what someone in Kiritimati already has. ?date= reads
+# any date at all, which is why it stays behind the flag.
+#
+# PUZZLE_SALT is a secret, set once with:
+#   wrangler pages secret put PUZZLE_SALT

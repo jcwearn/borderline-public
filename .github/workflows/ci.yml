@@ -1,0 +1,77 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  # Superseded pull request runs are noise. Every commit on main gets checked,
+  # because nothing else is watching it.
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+jobs:
+  check:
+    name: Format, lint, typecheck, test, build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v5
+
+      # scripts/ imports .ts directly and runs on --experimental-strip-types,
+      # so the Node version is load-bearing. It comes from .node-version.
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: '.node-version'
+          cache: 'npm'
+
+      # Also the lockfile check: npm ci refuses to run if package.json and
+      # package-lock.json disagree.
+      - name: Install
+        run: npm ci
+
+      - name: Format
+        run: npm run format:check
+
+      - name: Lint
+        run: npm run lint
+
+      # Redundant with the build's own `tsc -b`, but near-free once the build
+      # info is warm, and a type error reads as a type error rather than as a
+      # failed build.
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Test
+        run: npm test
+
+      # The layout suite drives a real browser, because the bug it exists to
+      # catch is a grid track outgrowing its container and nothing without a
+      # layout engine can see one. Chrome is fetched explicitly rather than by
+      # puppeteer's postinstall, which npm's install-script policy blocks.
+      - name: Install Chrome
+        run: npx puppeteer browsers install chrome
+
+      - name: Layout test
+        run: npm run test:layout
+
+      # Runs build:data first, so the step below compares what this just wrote
+      # against what is committed. build:og is deliberately not run: it writes
+      # public/og.png, a share card that is refreshed by hand.
+      - name: Build
+        run: npm run build
+
+      - name: Generated data is in sync
+        run: |
+          paths='src/data/graph.json src/data/crossings.json src/data/regions.json functions/data/pairs.json public/countries-110m.json'
+          if ! git diff --quiet -- $paths; then
+            echo "::error::Generated data is stale. Run 'npm run build:data' and commit the result."
+            git diff --stat -- $paths
+            exit 1
+          fi

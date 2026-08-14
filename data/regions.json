@@ -1,0 +1,62 @@
+[
+  {
+    "name": "The Levant",
+    "countries": ["SYR", "LBN", "ISR", "JOR"],
+    "basis": "The eastern Mediterranean coast and its hinterland, the land bridge every route between Africa and Asia has to use once Egypt is behind it. Measured: 272 of the sampled pairs route through it and 172 of those can go round for within a stroke of the price, the highest live count of any region here."
+  },
+  {
+    "name": "The Anatolian and Iranian highlands",
+    "countries": ["TUR", "IRN"],
+    "basis": "The mountain belt between the Mediterranean and Central Asia. Two countries, and the busiest corridor on the map — 329 sampled pairs cross it, more than any other region — because everything travelling between Europe and southern Asia comes this way or goes round the top through Russia. Named for the physiography rather than for either state."
+  },
+  {
+    "name": "The Nile",
+    "countries": ["EGY", "SDN", "SSD"],
+    "basis": "The river's course from the delta to the equatorial swamps, and the only land corridor between Africa north of the Sahara and Africa south of it that does not cross the desert's width. Bites 290 sampled pairs and severs none: there is always a way round, it is just long."
+  },
+  {
+    "name": "The Maghreb",
+    "countries": ["MAR", "DZA", "TUN", "LBY"],
+    "basis": "North Africa west of Egypt, between the Atlas and the sea. 78% of the pairs it bites can go round it for within a stroke, the highest proportion of any large region — which is what makes it a decision rather than a toll."
+  },
+  {
+    "name": "Central Europe",
+    "countries": ["DEU", "CZE", "AUT", "CHE"],
+    "basis": "The middle of the continent, where the north European plain meets the Alps. The four-country form rather than a wider one: adding Poland and Hungary took the live tradeoff from 68% down to 47%, because the wider region stops having a way round."
+  },
+  {
+    "name": "The Baltic shore",
+    "countries": ["POL", "LTU", "LVA", "EST", "BLR"],
+    "basis": "The plain between the Baltic and the Pripet marshes. Every pair it bites can be routed round it for within a stroke — the alternative runs south through the Carpathians — so it is a live choice on all 106 of them."
+  },
+  {
+    "name": "The Iberian Peninsula",
+    "countries": ["ESP", "PRT"],
+    "basis": "Everything beyond the Pyrenees. It matters because of Ceuta and Melilla: Spain meets Morocco by land, so Iberia is a way between Europe and Africa and not the dead end it looks like from orbit."
+  },
+  {
+    "name": "The Caucasus",
+    "countries": ["GEO", "ARM", "AZE"],
+    "basis": "The isthmus between the Black Sea and the Caspian. Narrow enough that every one of the 104 pairs crossing it has the Russian route as a live alternative, and none is severed by shutting it."
+  },
+  {
+    "name": "The Congo Basin",
+    "countries": ["CMR", "CAF", "COD", "COG", "GAB"],
+    "basis": "The equatorial rainforest and the countries the river drains. Every pair it bites can be routed round, north through the Sahel or south through Zambia, so it is a live choice on all of them — and it is the only region here covering equatorial Africa."
+  },
+  {
+    "name": "The Carpathians",
+    "countries": ["ROU", "HUN", "SVK", "UKR"],
+    "basis": "The arc of mountains enclosing the Hungarian plain. Small in reach — 17 sampled pairs — but every one of them is a live choice, and it is the southern alternative the Baltic shore is measured against."
+  },
+  {
+    "name": "The Alps",
+    "countries": ["CHE", "AUT", "ITA", "SVN"],
+    "basis": "The range and the countries it sits across. Overlaps Central Europe at Switzerland and Austria, which is allowed and correct: a country may belong to more than one region, and the two are never applied at once."
+  },
+  {
+    "name": "The Hindu Kush",
+    "countries": ["AFG", "PAK", "TJK", "UZB"],
+    "basis": "The mountains between the Iranian plateau and the Indian subcontinent, and the passes through them. Small in reach because most routes east prefer the northern steppe, which is exactly the alternative that makes its twelve pairs a live choice."
+  }
+]

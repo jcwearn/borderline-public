@@ -1,0 +1,1816 @@
+.app {
+  display: grid;
+  /* So the free play drawer can sit over this rather than inside it. */
+  position: relative;
+  grid-template-rows: auto 1fr auto;
+  /* The inline-axis twin of `.stage`'s `min-height: 0`, and there for the same
+     reason. Name no column and there is still one, sized `auto`, whose base is
+     the widest automatic minimum among the three rows — and on a phone that is
+     `.controls`, which is the chain rail, which is every chip laid end to end
+     because the touch block below stops it wrapping. A grid track is never
+     clamped to its container, so the shell grew by a country at a time until the
+     right-hand keys walked off the screen, and `html, body { overflow: hidden }`
+     meant they could not be scrolled back.
+
+     `minmax(0, 1fr)` rather than `1fr`, which is only `minmax(auto, 1fr)` under
+     another name and would keep the same automatic minimum. The explicit zero
+     is the whole fix: it also stops the rows themselves being wider than the
+     track, so none of them needs a `min-width` of its own. */
+  grid-template-columns: minmax(0, 1fr);
+  height: 100%;
+}
+
+.app.splash {
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.app.splash h1 {
+  margin: 0 0 0.6rem;
+  font-size: 1.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.loading-text {
+  color: var(--text-dim);
+}
+
+.failure {
+  max-width: 26rem;
+  margin: 0 auto 1rem;
+  color: var(--miss);
+}
+
+/* ---------------------------------------------------------------- top bar */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 0.7rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-panel);
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.puzzle-no {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+/* The two endpoints, with the swap button notched into the seam between them,
+   after Google Flights. */
+
+.endpoints-swap {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+}
+
+.endpoint-field {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  height: 2.35rem;
+  padding: 0 0.95rem;
+  border: 1px solid var(--border);
+  background: var(--bg-input);
+  font-weight: 600;
+  overflow: hidden;
+}
+
+.endpoint-field.from {
+  border-radius: 999px 0 0 999px;
+  padding-right: 1.5rem;
+  color: var(--start);
+  justify-content: flex-end;
+}
+
+.endpoint-field.to {
+  border-radius: 0 999px 999px 0;
+  border-left: 0;
+  padding-left: 1.5rem;
+  color: var(--end);
+}
+
+.endpoint-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  white-space: nowrap;
+}
+
+.swap-button {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  padding: 0;
+  margin: 0 -1.05rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+  color: var(--text-dim);
+  z-index: 2;
+}
+
+.swap-button:hover:not(:disabled) {
+  color: var(--text);
+  border-color: var(--accent-dim);
+}
+
+.swap-button:active {
+  transform: scale(0.92);
+}
+
+.swap-button svg {
+  /* Overshoots slightly and settles, so the turn has some weight to it. */
+  transition: transform 0.45s cubic-bezier(0.34, 1.4, 0.5, 1);
+}
+
+/* The two names cross over each other: each arrives from the side the other
+   just left. */
+@keyframes arrive-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(0.9rem);
+  }
+}
+
+@keyframes arrive-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-0.9rem);
+  }
+}
+
+.arrive-from-right {
+  animation: arrive-from-right 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.arrive-from-left {
+  animation: arrive-from-left 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .swap-button svg {
+    transition: none;
+  }
+  .arrive-from-right,
+  .arrive-from-left {
+    animation: none;
+  }
+}
+
+.mute {
+  display: grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  padding: 0;
+  border-radius: 50%;
+  color: var(--text-dim);
+}
+
+.mute:hover:not(:disabled) {
+  color: var(--text);
+}
+
+.mute[aria-pressed='true'] {
+  color: var(--text-dim);
+  opacity: 0.6;
+}
+
+.scores {
+  display: flex;
+  gap: 1.1rem;
+  margin: 0;
+}
+
+.scores div {
+  text-align: right;
+}
+
+.scores dt {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+}
+
+.scores dd {
+  margin: 0;
+  font-size: 1.1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.scores dd small {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  margin-left: 0.15rem;
+}
+
+/* ------------------------------------------------------------------ globe */
+
+.stage {
+  position: relative;
+  overflow: hidden;
+  /* A grid track's automatic minimum is its content, and the content here is a
+     canvas with a fixed pixel height — so without this the row refuses to give
+     any of itself back, and raising the keypad pushes the bottom row of keys
+     off the screen instead of shrinking the globe. */
+  min-height: 0;
+  background: radial-gradient(circle at 50% 40%, #131c3a 0%, var(--bg) 70%);
+}
+
+.loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--text-dim);
+}
+
+.globe-failed {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 0.3rem;
+  text-align: center;
+  padding: 1rem;
+  color: var(--miss);
+}
+
+.globe-failed p {
+  margin: 0;
+}
+
+.globe-failed-detail {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  max-width: 28rem;
+}
+
+.toast {
+  position: absolute;
+  left: 50%;
+  bottom: 1.2rem;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(20, 26, 48, 0.92);
+  backdrop-filter: blur(6px);
+  white-space: nowrap;
+  /* It is over the board it is describing, and on its way out besides. A press
+     aimed at the country under it must reach the country. */
+  pointer-events: none;
+  animation: toast-life 3.4s ease forwards;
+}
+
+/* The whole life of a toast, and the only clock it has: `App.tsx` clears the
+   message when this ends. Hence no `prefers-reduced-motion` opt-out, unlike
+   every other animation in this file — `animation: none` would not calm the
+   toast down, it would make it permanent again. Nothing moves anyway. */
+@keyframes toast-life {
+  0% {
+    opacity: 0;
+  }
+  6%,
+  84% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.toast.good {
+  border-color: var(--accent-dim);
+  color: var(--accent);
+}
+.toast.bad {
+  border-color: #6d3a37;
+  color: var(--miss);
+}
+
+/* Sits at the top of the stage so it never fights the toast, which comes and
+   goes at the bottom. Quiet on purpose: a standing fact, not an alert.
+
+   A column and not a row: "Bosnia and Herzegovina and North Macedonia closed
+   today" beside anything at all is wider than a phone. Three of them at once is
+   reachable — the pool doubles up at most, but a `?free=` link can carry a
+   closure, rough and a waypoint together — so the pills are in flow rather than
+   at a `top` apiece. Two of them used to be pinned at the same `top`, and a
+   `rough+dogleg` round drew them on top of each other; a third tier would have
+   fixed only that, and not the phone's real case, which is a pill wrapping to
+   two lines and running through whatever was pinned below it. Do not put a
+   `top` back on a pill. */
+.notice-stack {
+  position: absolute;
+  inset-inline: 0;
+  top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* The step the two tiers used to be apart, less the height of a pill. */
+  gap: 0.4rem;
+  pointer-events: none;
+}
+
+.closed-notice {
+  margin: 0;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid #606574;
+  background: rgba(20, 26, 48, 0.92);
+  backdrop-filter: blur(6px);
+  color: #dfe3ec;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+/* Colour only — which pill sits where is the stack's business and the order they
+   are written in.
+
+   Each one quotes the shape it is about, which is the whole job: a pill floating
+   over the globe saying "4 countries are rough today" has to be findable from
+   the sentence, and the only thing joining the words to the shapes is the
+   colour. So every value below is one of `GlobeView`'s own, lightened to carry
+   text on the pill's dark ground and no further — the hues are not retuned,
+   because a near-match reads worse than none. Change one there and change it
+   here. */
+
+/* `FILL.required`, the bone the waypoint is marked in. */
+.closed-notice.via {
+  border-color: rgba(232, 226, 208, 0.55);
+  color: #eee8d8;
+}
+
+/* `BAND` and `STROKE_ROUGH` in `roughFill.ts` — the warm brown of the hatch and
+   its outline, and emphatically not the gold this used to be. Gold sat between
+   `FILL.start`'s amber and the bone above it, so the one pill naming ground you
+   may still cross looked like both of the two shapes you may not mistake it
+   for. Earth is what the hatch says; earth is what the sentence should say. */
+.closed-notice.rough {
+  border-color: rgba(170, 117, 76, 0.8);
+  color: #d1a17b;
+}
+
+/* `FILL.closed`: neutral, and the only thing on the board with no colour in it
+   at all. The pill was near-white on grey, which read as the ordinary voice of
+   the app rather than as the shut shapes underneath it. */
+.closed-notice.shut {
+  border-color: rgba(112, 116, 130, 0.85);
+  color: #c2c7d4;
+}
+
+/* `FILL.available`, the blue of ground still open to play. A fairway day greys
+   most of the world, and grey already reads as absence — the pill points at
+   what is left, which is the course. */
+.closed-notice.fairway {
+  border-color: rgba(112, 148, 226, 0.8);
+  color: #a9c3f0;
+}
+
+/* Read and done with. Slower than the toast on the way out because nothing
+   prompted it — it is a thing leaving of its own accord, not an answer. */
+.closed-notice.leaving {
+  animation: notice-out 0.6s ease forwards;
+}
+
+@keyframes notice-out {
+  to {
+    opacity: 0;
+  }
+}
+
+/* --------------------------------------------------------------- free play */
+
+/* Over the app, never in it. `.app`'s single `minmax(0, 1fr)` column and the
+   comment at the top of this file are the fix the layout suite exists to guard;
+   a drawer in the flow would hand the panel's content width straight back to
+   that track, which is the bug. Absolute takes it out of the sizing entirely. */
+.free-drawer {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: 0;
+  z-index: 12;
+  width: min(26rem, 100%);
+  padding: 1.2rem 1.1rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-left: 1px solid var(--border);
+  background: rgba(10, 15, 32, 0.94);
+  backdrop-filter: blur(6px);
+}
+
+.free-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  text-align: left;
+}
+
+.free-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* The modal's × without a modal corner to hang in. */
+.free-head .modal-close {
+  position: static;
+}
+
+.free-panel h1 {
+  margin: 0;
+  font-size: 1.3rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.free-note {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.free-field {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 2.6rem;
+}
+
+/* The field's name is also the control that aims the globe at it, because a
+   separate row of From/To/Closed above the fields would be the same three words
+   twice — and on a phone, a row of globe spent saying them again. */
+.free-slot {
+  flex: none;
+  width: 4.6rem;
+  padding: 0.3rem 0.4rem;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: none;
+  font-size: 0.7rem;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+}
+
+.free-slot:hover {
+  color: var(--text);
+}
+
+/* Which field the globe is filling. Blue, and deliberately not the amber or the
+   pink: those two are already answers on the globe, and a mark that borrowed
+   one would say a field was the start rather than that it is being filled. Blue
+   is the globe's own "you can act here". */
+.free-field.aimed .free-slot {
+  border-color: rgba(112, 148, 226, 0.6);
+  background: rgba(112, 148, 226, 0.15);
+  color: #a2c2fc;
+}
+
+/* The picker and any chips share the row, and wrap once there are a few. */
+.free-field .guess,
+.free-hazards {
+  flex: 1;
+  min-width: 0;
+}
+
+/* The footer's picker opens upward, over the globe. Up here that is off the top
+   of a panel that scrolls, so the builder's suggestions hang down instead. */
+.free-field .suggestions {
+  top: calc(100% + 0.35rem);
+  bottom: auto;
+}
+
+.free-hazards {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* Stands where an input used to, and reads like one so the row does not look
+   broken beside the two fields that still take typing. */
+.free-aim {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  text-align: left;
+  padding: 0.25rem 0;
+}
+
+/* The only place in the panel that names anything beyond the two ends, and it
+   names places rather than countries. Sized like the aim beside it rather than
+   like an input: the region is the shortcut, and pointing is the way in. */
+.free-region {
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.25rem 0.4rem;
+  max-width: 100%;
+}
+
+.chip-remove {
+  padding: 0 0 0 0.15rem;
+  border: 0;
+  background: none;
+  color: inherit;
+  opacity: 0.65;
+  line-height: 1;
+}
+
+.chip-remove:hover {
+  opacity: 1;
+}
+
+.free-verdict {
+  margin: 0;
+  min-height: 1.2rem;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.free-error {
+  color: var(--miss);
+}
+
+.free-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.free-panel .share:disabled {
+  opacity: 0.45;
+}
+
+/* ------------------------------------------------------------- chain rail */
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 0.8rem 1.1rem 1rem;
+  border-top: 1px solid var(--border);
+  background: var(--bg-panel);
+}
+
+.rail-run,
+.rail-wasted {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  overflow-x: auto;
+}
+
+.rail-wasted {
+  margin-top: 0.45rem;
+}
+
+.rail-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.rail-note {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-dim);
+  margin-right: 0.2rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-input);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.chip.start {
+  border-color: var(--start);
+  color: var(--start);
+}
+.chip.end {
+  border-color: var(--end);
+  color: var(--end);
+}
+.chip.placed {
+  border-color: var(--accent-dim);
+  color: var(--accent);
+}
+.chip.wasted {
+  color: var(--text-dim);
+  opacity: 0.75;
+}
+/* Bone, matching the shape on the globe: somewhere the round still has to run
+   through, and the one chip on the rail that is not a country you have played. */
+.chip.required {
+  border-color: rgba(232, 226, 208, 0.7);
+  color: #e8e2d0;
+}
+
+/* The waypoint before it is named. Sized like `.flag` rather than like
+   `.chip-name`, and that is the whole point of it being its own class: the
+   coarse-pointer block below hides `.chip-name`, so a `?` written there would
+   vanish on a phone and leave the flag alone on the rail — handing over the one
+   country the round is asking for. This is always drawn. */
+.chip-anon {
+  font-size: 1rem;
+  line-height: 1;
+  letter-spacing: 0.06em;
+}
+/* `BAND` from `roughFill.ts`, lightened until it carries on a dark rail and no
+   further — the same pair the rough's pill uses, because they are the same
+   barrier and two answers is one too many.
+
+   This was gold, on the reasoning that the hatch is a colour that has to survive
+   being multiplied over eight different fills and a chip has to be legible
+   instead, so the two could share the warmth and part company on the rest. They
+   parted too far: gold sits between the amber of `FILL.start` and the bone of
+   `FILL.required`, so the one thing on screen meaning "ground you may still
+   cross" looked like both of the things it is not. Lightening the hue is the
+   legibility the gold was after, without giving up which barrier it names. */
+.chip.rough {
+  border-color: rgba(170, 117, 76, 0.8);
+  color: #d1a17b;
+}
+
+.flag {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.link {
+  width: 1.1rem;
+  height: 1px;
+  background: var(--border);
+}
+
+.link.dashed {
+  background: repeating-linear-gradient(to right, var(--border) 0 4px, transparent 4px 8px);
+}
+
+/* A crossing, drawn as water rather than as a rule. Taller than a land link so
+   the extra shot it cost is visible on the rail at a glance. */
+.link.sea {
+  height: 6px;
+  background: none;
+  border-bottom: 1px solid #7abeff;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  opacity: 0.85;
+}
+
+.gap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--text-dim);
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------------------ entry */
+
+.entry {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.guess {
+  position: relative;
+  flex: 1 1 16rem;
+  max-width: 24rem;
+}
+
+.guess input {
+  width: 100%;
+}
+
+.suggestions {
+  position: absolute;
+  bottom: calc(100% + 0.35rem);
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0.25rem;
+  list-style: none;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+  z-index: 5;
+}
+
+.suggestion {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  border-radius: 6px;
+  padding: 0.4rem 0.55rem;
+}
+
+.suggestion.active {
+  background: var(--bg-input);
+  color: var(--accent);
+}
+
+.verdict {
+  margin: 0;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.hint-note {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+
+.linkish {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: var(--text-dim);
+  text-decoration: underline;
+  font-weight: 400;
+}
+
+/* ------------------------------------------------ the keyboard we bring */
+
+/* Everything below is about the pointer, not the width: a narrow desktop window
+   still has a real keyboard and should keep its real input. So these key off
+   `hover: none` rather than joining the max-width block above. */
+
+@media (hover: none) and (pointer: coarse) {
+  /* Thumbs. The swap button's negative margin is half its width by design — it
+     notches into the seam between the two endpoint pills — so it has to move
+     with the width or the pill splits open. */
+  .mute {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  /* Sized to the pill it is notched into rather than to the 44px guideline —
+     standing proud of the seam it stops reading as part of the control. Its
+     negative margin is half its width by design, so the two move together. */
+  .swap-button {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0 -1.25rem;
+  }
+
+  /* There is no hover here, only a colour that sticks after a tap. */
+  .mute:hover:not(:disabled),
+  .swap-button:hover:not(:disabled) {
+    color: var(--text-dim);
+    border-color: var(--border);
+  }
+
+  /* A side drawer on a 393px screen is not a drawer, it is the screen. So on a
+     phone the builder is not an overlay at all: it takes the bottom of the
+     screen, and the globe is given the top and told about it.
+
+     Told about it is the part that matters. Left overlapping, the stage stays
+     full height, the camera frames the two endpoints at its middle, and its
+     middle is behind the panel — the one thing you opened the builder to look
+     at is the one thing covered up. `.stage` is what `useElementSize` measures
+     and what the canvas is sized from, so shortening it by exactly the panel's
+     height reframes the globe into the band that is actually visible.
+
+     A margin and not a grid row, deliberately: the drawer stays out of the flow,
+     so the panel's content width can never reach `.app`'s single column. That
+     column is the fix `e2e/mobile-layout.test.ts` exists to guard.
+
+     Behind the pointer query and not a width, like everything else in this
+     block: a narrow desktop window keeps the drawer, because it still has a
+     cursor to hover shapes with. */
+  .free-drawer {
+    inset-block: auto 0;
+    inset-inline: 0;
+    width: auto;
+    height: 54dvh;
+    padding: 0.9rem max(0.9rem, env(safe-area-inset-right))
+      max(0.9rem, calc(env(safe-area-inset-bottom) + 0.4rem)) max(0.9rem, env(safe-area-inset-left));
+    border-left: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .app.building .stage {
+    margin-bottom: 54dvh;
+  }
+
+  /* Both belong to the round underneath, and both are behind the panel anyway.
+     Hidden, their rows go back to the globe, which is what the screen is short
+     of — and the builder reads as its own screen rather than as a sheet stuck
+     over a game you are no longer playing. */
+  .app.building .controls,
+  .app.building .scores {
+    display: none;
+  }
+
+  /* The rail hides these to keep an eight-country route on one line. Here the
+     only thing left carrying a name is an endpoint or a whole region — the rest
+     of the panel is anonymous by design — and a region chip is nothing but its
+     name, so hiding it would leave a bare ×. */
+  .free-drawer .chip-name {
+    display: inline;
+  }
+
+  /* Three lines of it, on a screen that is short of them. The armed field and
+     the colours on the globe say the same thing in none. */
+  .free-drawer .free-note {
+    display: none;
+  }
+
+  /* The rail wraps by default, which turns an eight-country route into three
+     rows of footer. Scroll it sideways instead — the chips are flag-only at
+     this width, so a whole route usually fits without moving at all. */
+  .rail-run,
+  .rail-wasted {
+    flex-wrap: nowrap;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+
+  .rail-run::-webkit-scrollbar,
+  .rail-wasted::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* The home indicator sits over the bottom of the screen, and the bottom of
+     the screen is now the bottom row of keys. Carried here rather than on the
+     keypad so the clearance is the same whether the keypad is up or down. */
+  .controls {
+    gap: 0.5rem;
+    padding: 0.55rem max(0.8rem, env(safe-area-inset-right))
+      max(0.6rem, calc(env(safe-area-inset-bottom) + 0.35rem))
+      max(0.8rem, env(safe-area-inset-left));
+  }
+
+  .entry {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  /* `.guess` carries `flex: 1 1 16rem` for the desktop row. In a column that
+     sixteen rem is a *height*, and the footer grows a blank 250px under the
+     bar. Nothing here flexes: the bar is as tall as the bar. */
+  .guess-touch {
+    flex: none;
+    max-width: none;
+  }
+
+  /* Not an input. iOS opens its keyboard for anything focusable and then
+     scrolls the page up to reach it, which is what threw the scorecard off the
+     top of the screen — so this is a button that reads back what you typed, and
+     the keys below it are ours. */
+  .guess-bar {
+    display: flex;
+    align-items: center;
+    height: 2.75rem;
+    padding-right: 0.3rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg-input);
+  }
+
+  /* No gap: the caret is the next flex item after the text, and a gap here is a
+     gap between a word and its cursor. The chevron holds the right edge on its
+     own margin. */
+  .guess-bar-toggle {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    padding: 0 0.8rem;
+    border: 0;
+    background: none;
+    text-align: left;
+  }
+
+  .guess-bar-toggle:hover:not(:disabled) {
+    border-color: transparent;
+  }
+
+  .guess-text {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .guess-text.empty {
+    color: var(--text-dim);
+  }
+
+  .guess-caret {
+    flex: none;
+    width: 2px;
+    height: 1.15em;
+    background: var(--accent);
+    animation: caret-blink 1.06s steps(1) infinite;
+  }
+
+  .guess-chevron {
+    flex: none;
+    margin-left: auto;
+    color: var(--text-dim);
+    transition: transform 0.18s ease;
+  }
+
+  .guess-chevron.down {
+    transform: rotate(180deg);
+  }
+
+  .guess-clear {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--text-dim);
+  }
+
+  .keypad-block {
+    display: grid;
+    gap: 0.45rem;
+    /* Only the ink fades. Animating the height would resize the stage on every
+       frame, and the globe's canvas with it. */
+    animation: keypad-in 0.14s ease-out;
+  }
+
+  /* The suggestions, as a strip rather than a dropdown. A panel floating over
+     the globe had no way to be dismissed by touch and no way to be scrolled;
+     a strip sitting on the keyboard is always there and never in the way. */
+  .suggestion-strip {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    height: 2.5rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+
+  .suggestion-strip::-webkit-scrollbar {
+    display: none;
+  }
+
+  .suggestion-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex: none;
+    height: 2.25rem;
+    padding: 0 0.8rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    touch-action: manipulation;
+  }
+
+  .suggestion-chip:active {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .suggestion-empty {
+    padding-left: 0.2rem;
+    font-size: 0.82rem;
+    color: var(--text-dim);
+  }
+
+  .keypad {
+    --key-height: 2.75rem;
+    --key-gap: 6px;
+
+    display: grid;
+    gap: var(--key-gap);
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    touch-action: manipulation;
+    overscroll-behavior: contain;
+  }
+
+  .keypad-row {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    gap: var(--key-gap);
+  }
+
+  .key {
+    height: var(--key-height);
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 7px;
+    background: var(--bg-input);
+    box-shadow: 0 1px 0 rgb(0 0 0 / 35%);
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .key:hover:not(:disabled) {
+    border-color: transparent;
+  }
+
+  .key:active {
+    background: var(--accent-dim);
+    color: var(--text);
+  }
+
+  .key-wide {
+    background: var(--bg-panel);
+  }
+
+  /* Three rows of keys, a strip and a bar is most of a small phone. */
+  @media (max-height: 700px) {
+    .keypad {
+      --key-height: 2.4rem;
+      --key-gap: 5px;
+    }
+
+    .suggestion-strip {
+      height: 2.25rem;
+    }
+  }
+}
+
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes keypad-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .guess-caret,
+  .keypad-block {
+    animation: none;
+  }
+
+  .guess-chevron {
+    transition: none;
+  }
+}
+
+/* ------------------------------------------------------------------ modal */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(6, 10, 22, 0.72);
+  backdrop-filter: blur(4px);
+  z-index: 20;
+}
+
+.modal {
+  position: relative;
+  width: min(26rem, 100%);
+  max-height: 100%;
+  overflow-y: auto;
+  padding: 1.6rem;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  text-align: center;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  border: 0;
+  background: none;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--text-dim);
+  padding: 0.2rem 0.45rem;
+}
+
+.modal-eyebrow {
+  margin: 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.modal h2 {
+  margin: 0.3rem 0 1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.modal-score {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.modal-delta {
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin-left: 0.5rem;
+  vertical-align: super;
+}
+
+.modal-par {
+  margin: 0.4rem 0 1.2rem;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.breakdown {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 0 1rem;
+  padding: 0.8rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.breakdown.record {
+  border-bottom: 1px solid var(--border);
+}
+
+.breakdown dt {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+}
+
+.breakdown dd {
+  margin: 0.2rem 0 0;
+  font-size: 1.3rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.breakdown dd small {
+  font-size: 0.7rem;
+  color: var(--miss);
+}
+
+.distribution {
+  margin: 0 0 1.2rem;
+  text-align: left;
+}
+
+.distribution-title {
+  margin: 0 0 0.5rem;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+}
+
+.dist-row {
+  display: grid;
+  grid-template-columns: 1.9rem 1fr 1.4rem;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.1rem 0;
+}
+
+.dist-label,
+.dist-count {
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-dim);
+}
+
+.dist-count {
+  text-align: right;
+}
+
+.dist-track {
+  display: block;
+  height: 0.85rem;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.dist-bar {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+}
+
+.dist-row.current .dist-bar {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.dist-row.current .dist-label,
+.dist-row.current .dist-count {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.share {
+  width: 100%;
+  padding: 0.7rem;
+  font-weight: 600;
+  color: #08120d;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.share:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+/* Everything either side of the globe is a tap target, and a phone reads a
+   second tap on one as a request to zoom rather than as a second tap — which is
+   how a round drifts further into the page the longer it goes on. `manipulation`
+   gives up that one gesture and keeps the rest: the rail still scrolls sideways,
+   the suggestion strip still does, and a player who wants to pinch the page
+   still can, which matters when pinching is the only way out of anything.
+
+   On the two rows rather than on each control, because the touch-action in
+   force is the intersection down the whole ancestor chain: one rule covers every
+   button in them, including the ones nobody has written yet. The globe is the
+   row between and is not named here, so its `touch-action: none` below stands —
+   and would stand anyway, since `none` against anything is still `none`.
+   Outside the coarse-pointer block on purpose, too: a laptop with a touchscreen
+   answers `hover: hover` and has the same double tap. */
+.topbar,
+.controls {
+  touch-action: manipulation;
+}
+
+/* ------------------------------------------------ hold to buy, and its notice */
+
+.globe-surface {
+  width: 100%;
+  height: 100%;
+  /* Without this a press-and-hold on mobile scrolls or pops the callout menu
+     instead of running the ring. */
+  touch-action: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+/* three.js's CSS2DRenderer stamps an inline z-index on every label — one per
+   country, ranked by camera distance — and its own container makes no stacking
+   context, so those numbers land in `.stage` and beat the toast and the closed
+   notice, which sit at z-index auto. The names painted straight over both until
+   this. Isolating the scene keeps them inside it.
+
+   On the scene rather than on `.globe-surface` deliberately: the hold ring is a
+   sibling of this container, not a child, so it keeps its z-index of 15 and
+   still draws over the free play drawer. */
+.globe-surface .scene-container {
+  isolation: isolate;
+}
+
+/* A name on the globe. Rendered as DOM over the canvas, so the halo below is
+   what keeps it readable: a name is usually wider than its own country, and
+   ends up lying across both a bright fill and the near-black ocean. */
+.globe-label {
+  display: grid;
+  justify-items: center;
+  gap: 0.2rem;
+  /* The canvas underneath has to keep receiving every press. */
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  color: var(--text);
+}
+
+.globe-label-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentcolor;
+  box-shadow: 0 0 0 1.5px rgb(7 11 24 / 85%);
+}
+
+.globe-label-name {
+  font-size: 0.74rem;
+  font-weight: 650;
+  letter-spacing: 0.015em;
+  text-shadow:
+    0 0 3px rgb(7 11 24 / 95%),
+    0 1px 3px rgb(7 11 24 / 90%),
+    0 0 8px rgb(7 11 24 / 80%);
+}
+
+.globe-label-start {
+  color: #ffd489;
+}
+
+.globe-label-end {
+  color: #ffc6e2;
+}
+
+.globe-label-placed {
+  color: #d8fdec;
+}
+
+.globe-label-known {
+  color: #ddd4f7;
+}
+
+.globe-label-closed {
+  color: #dfe3ec;
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+
+/* The one label on the globe that is dark, and it has to be. Every other role
+   writes a pale name over a shape darker than it or over the ocean; the
+   waypoint's sits on `FILL.required`, which is the palest thing on the globe by
+   some distance and was picked precisely because nothing else here is near
+   white. Bone on bone is invisible — it was drawn that way first and the marker
+   could not be found on the shape it was marking. So this inverts: the ink the
+   borders are drawn in, on the one fill bright enough to carry it.
+
+   The halo inverts with it, below. Between them the label survives both grounds,
+   which matters because it is anchored on the country's own coordinates and
+   those sit outside the polygon for an awkward enough shape.
+
+   This role had no rule at all until the marker arrived, which was a quiet bug
+   rather than an omission: a waypoint whose name has been bought is `required`
+   and not `known` — `roleResolver` checks in that order — so its name fell
+   through to `.globe-label`'s plain white. */
+.globe-label-required {
+  color: #141c34;
+}
+
+.globe-label-required .globe-label-name {
+  text-shadow:
+    0 0 3px rgb(238 232 216 / 95%),
+    0 1px 3px rgb(238 232 216 / 90%),
+    0 0 8px rgb(238 232 216 / 80%);
+}
+
+/* The dot's ring inverts for the same reason the halo does. Everywhere else it
+   is a dark ring holding a pale dot off a dark ground; left dark here it merges
+   with the dark dot into a blob twice the weight of the marker under it.
+
+   Only a bought waypoint draws a dot at all — before that the stake stands on
+   its own, and `labelElement` leaves the dot out rather than hiding it here. */
+.globe-label-required .globe-label-dot {
+  box-shadow: 0 0 0 1.5px rgb(238 232 216 / 85%);
+}
+
+/* The stake on the waypoint. See `MarkerPost.tsx`.
+ *
+ * Size is unscoped on purpose: `labelWidth`'s hidden ruler in `GlobeView` is a
+ * bare `.globe-label-name` with no `.globe-label` around it, so anything
+ * layout-bearing set on an ancestor would be missing from the very measurement
+ * the collision test runs on. Set here, the ruler measures what gets painted.
+ *
+ * No margin, deliberately. What follows the stake is a space where anything
+ * follows it at all — a real node in `nameNodes`, so the ruler gets it too —
+ * and on the rail and the anonymous globe label nothing follows, where a
+ * trailing margin would push the one mark on the shape off the spot it marks. */
+.mark-post {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.13em;
+}
+
+/* A lone stake, with no name beside it. Drawn as a block so the box is the
+   marker and nothing else: inline, the span keeps the font's ascent and descent
+   whether there is text in it or not, and `vertical-align` shifts the stake
+   inside a box a third taller than itself — so the label's centre, which is
+   what the globe anchors on the country, sat in the empty space under it.
+
+   Then lifted by half its height, so the stake stands *on* the point rather
+   than straddling it. Every other label is a dot and a name either side of the
+   anchor, which puts the dot above it; a marker centred on the anchor therefore
+   sat visibly lower than the dot it replaces. Rather than copy that offset —
+   which is the name's line height and would drift with the font — the rule here
+   is the one a flag already implies: the base of the post is the place.
+
+   `transform` and not `margin`, so the box stays one em square and the ruler in
+   `labelWidth`, which never gets this class, still measures what is painted. */
+.globe-label-mark .mark-post {
+  display: block;
+  vertical-align: initial;
+  transform: translateY(-50%);
+}
+
+/* `drop-shadow` rather than the `text-shadow` above, which does nothing to SVG
+   geometry — and only on the globe, where the marker has a bright fill under it
+   and the halo is what keeps the post from disappearing into it. On the rail
+   and in the notices the glyph is bone on a dark pill and needs no help. */
+.globe-label-required .mark-post {
+  filter: drop-shadow(0 0 2px rgb(238 232 216 / 95%)) drop-shadow(0 1px 2px rgb(238 232 216 / 90%));
+}
+
+.hold-ring {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* A fingertip covers about fifty pixels of glass, so centred on the press the
+   ring is behind the thumb drawing it. Lift it clear. */
+.hold-ring.lifted {
+  transform: translate(-50%, -50%) translateY(-3.4rem);
+}
+
+.hold-ring-track {
+  stroke: rgba(232, 236, 248, 0.18);
+}
+
+.hold-ring-fill {
+  stroke: var(--accent);
+  /* The same halo the names use: the arc crosses a bright fill and near-black
+     ocean in one turn, and has to stay green against both. */
+  filter: drop-shadow(0 0 3px rgb(7 11 24 / 90%));
+}
+
+.notice {
+  text-align: left;
+}
+
+.notice h2 {
+  margin: 0.3rem 0 0.9rem;
+  font-size: 1.25rem;
+  text-align: left;
+}
+
+.notice-body {
+  margin: 0 0 0.8rem;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.steps {
+  list-style: none;
+  margin: 0 0 1.1rem;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  color: var(--text-dim);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.steps strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.steps em {
+  color: var(--accent);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.step-no {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-input);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.steps-today {
+  margin: 0 0 1.1rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 10px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.steps-today .from {
+  color: var(--start);
+}
+.steps-today .to {
+  color: var(--end);
+}
+
+.steps-par {
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+/* Under the button rather than beside the rules: it has to be findable, and it
+   is not something anybody came here to read. Quiet enough to read as a
+   footnote, and it brightens on hover so that finding it is still easy once
+   somebody is looking. */
+.modal-fineprint {
+  margin: 0.75rem 0 0;
+  font-size: 0.68rem;
+  text-align: center;
+  color: var(--text-dim);
+  opacity: 0.6;
+}
+
+.modal-fineprint a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.modal-fineprint:hover {
+  opacity: 1;
+}
+
+.modal-fineprint a:hover {
+  color: var(--accent);
+}
+
+/* Turning down the ask has to be as easy as taking it up, or it is not really an
+   ask. Stripped of the button chrome so it reads as part of the footnote rather
+   than as a second control competing with the share button above it, and given a
+   tap target through padding instead of size — 44px of hit area around a glyph
+   that still looks like a footnote. */
+.fineprint-dismiss {
+  margin-left: 0.15rem;
+  padding: 0.5rem;
+  border: 0;
+  border-radius: 4px;
+  background: none;
+  color: inherit;
+  font-size: 0.9rem;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.fineprint-dismiss:hover:not(:disabled) {
+  /* The global button hover paints a border this one does not have. */
+  border-color: transparent;
+  color: var(--miss);
+}
+
+.notice-body strong {
+  color: var(--accent);
+}
+
+.notice-how {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 1.2rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 10px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* The rail fragment in the dogleg notice. Centred rather than left-aligned like
+   the reveal notice's sentence, because it is a picture of the chain and not a
+   line of prose — and `.chip-name` still drops out on a phone, so what the
+   modal shows is exactly what the rail under the globe will show. */
+.notice-how.notice-rail {
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+/* The rough, as a sample rather than as a word.
+ *
+ * Honest on purpose, because a plain ochre square here would be the very thing
+ * the shared copy table exists to stop — the rules card claimed ochre for years
+ * while the globe drew brown. So these are the shader's own numbers: the hatch
+ * multiplies the role's fill by `BAND` = rgb(122, 84, 52) at `DUTY` = 0.42
+ * (`src/components/roughFill.ts`), over `unknown` = rgba(58, 70, 112, 0.85) and
+ * edged with `STROKE_ROUGH` = rgba(122, 84, 52, 0.95) (`GlobeView.tsx`). Three
+ * of seven pixels banded is that duty cycle at this size. If any of those
+ * change, this is the other place they are written down. */
+.notice-swatch {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+}
+
+.notice-swatch.rough {
+  background:
+    repeating-linear-gradient(45deg, rgba(122, 84, 52, 0.9) 0 3px, rgba(122, 84, 52, 0) 3px 7px),
+    rgba(58, 70, 112, 0.85);
+  border: 1px solid rgba(122, 84, 52, 0.95);
+}
+
+.notice-ring {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 3px solid rgba(232, 236, 248, 0.18);
+  border-top-color: var(--accent);
+  border-right-color: var(--accent);
+  animation: notice-ring-spin 1.6s linear infinite;
+}
+
+@keyframes notice-ring-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .notice-ring {
+    animation: none;
+  }
+}
+
+/* ----------------------------------------------------------------- mobile */
+
+@media (max-width: 720px) {
+  .topbar {
+    gap: 0.45rem 0.7rem;
+    padding: calc(0.55rem + env(safe-area-inset-top)) max(0.8rem, env(safe-area-inset-right))
+      0.55rem max(0.8rem, env(safe-area-inset-left));
+  }
+
+  /* The bar is down to one row for the endpoints and one for the score, and
+     neither the wordmark nor the puzzle number earns a place in them — you know
+     what game you opened, and the number is on the card you share. `contents`
+     rather than `none` so the h1 survives for a screen reader while taking no
+     width, and so the flex gap around it goes too. */
+  .brand {
+    display: contents;
+  }
+
+  .brand h1 {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .puzzle-no {
+    display: none;
+  }
+
+  /* Was `.endpoints`, which nothing has ever rendered — EndpointSwap draws
+     `.endpoints-swap` — so the bar never reflowed on a phone at all. */
+  /* Basis zero, not auto: given its content width as a basis the pair asks for
+     more than the bar has and knocks the buttons onto a row of their own. */
+  .endpoints-swap {
+    flex: 1 1 0;
+    min-width: 0;
+    margin-right: 0;
+  }
+
+  /* Sized to their names rather than to equal halves, so Chad gives back what
+     Bosnia and Herzegovina needs instead of both being cut to the same length.
+     The inner padding has to clear the swap button's overhang, or a long name
+     runs underneath it and reads as a bug rather than as a truncation. */
+  .endpoint-field {
+    flex: 1 1 auto;
+    height: 2.5rem;
+    padding: 0 0.6rem;
+    font-size: 0.85rem;
+  }
+
+  .endpoint-field.from {
+    padding-right: 1.5rem;
+  }
+
+  .endpoint-field.to {
+    padding-left: 1.5rem;
+  }
+
+  /* The flag is on the rail below and on the globe itself; here it is 27px of
+     the little width two country names have to share. */
+  .endpoint-name .flag {
+    display: none;
+  }
+
+  /* Truncate rather than wrap: "Bosnia and Herzegovina" must not cost a row
+     that "Chad" doesn't. */
+  .endpoint-name {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* The scorecard reads across as one line instead of down as four columns,
+     on a row of its own under the endpoints. */
+  .scores {
+    order: 3;
+    width: 100%;
+    gap: 0;
+    align-items: baseline;
+  }
+
+  .scores div {
+    display: flex;
+    align-items: baseline;
+    gap: 0.28rem;
+    text-align: left;
+  }
+
+  .scores div:not(:first-child)::before {
+    content: '·';
+    margin: 0 0.45rem;
+    color: var(--text-dim);
+  }
+
+  .scores dt {
+    font-size: 0.62rem;
+  }
+
+  .scores dd {
+    font-size: 0.9rem;
+  }
+
+  .chip-name {
+    display: none;
+  }
+
+  .chip {
+    padding: 0.25rem 0.4rem;
+  }
+
+  /* Both float over the globe, both are centred on it, and neither can be one
+     line on a phone — "Türkiye and Azerbaijan and Armenia closed today" is some
+     345px of it. Clipped by the stage rather than wrapped, a notice loses its
+     ⛔ and its "today" at the same time, which is the worst end to lose. */
+  .closed-notice,
+  .toast {
+    white-space: normal;
+    max-width: calc(100% - 2rem);
+    text-align: center;
+  }
+}

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b1020" />
+    <meta name="robots" content="noindex" />
+    <title>Borderline — nothing here</title>
+
+    <!--
+      Deliberately standalone: the app's stylesheet is fingerprinted, and the
+      one thing this page must survive is a build whose assets are missing.
+      The palette is the one in src/index.css.
+    -->
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: #0b1020;
+        color: #e8ecf8;
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          'Segoe UI',
+          Roboto,
+          sans-serif;
+      }
+      main {
+        display: grid;
+        place-items: center;
+        height: 100%;
+        text-align: center;
+        padding: 1rem;
+      }
+      h1 {
+        margin: 0 0 0.6rem;
+        font-size: 1.6rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      p {
+        margin: 0 0 1rem;
+        color: #8f9ac0;
+      }
+      a {
+        color: #5ad1a0;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div>
+        <h1>Borderline</h1>
+        <p>There is no round at this address.</p>
+        <a href="/">Play today's puzzle</a>
+      </div>
+    </main>
+  </body>
+</html>

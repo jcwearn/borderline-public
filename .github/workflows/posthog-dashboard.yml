@@ -1,0 +1,63 @@
+name: PostHog dashboard
+
+# The dashboard is scripts/posthog-dashboard.ts, so a tile edited there and merged
+# is a tile that has not shipped until something runs the script. This is that
+# something. src/analytics.ts is deliberately not in the filter: a property renamed
+# there has to be renamed in TILES too, so the tile file is the one that moves.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/posthog-dashboard.ts'
+      - '.github/workflows/posthog-dashboard.yml'
+  pull_request:
+    paths:
+      - 'scripts/posthog-dashboard.ts'
+      - '.github/workflows/posthog-dashboard.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Grouped by workflow rather than by ref, and nothing is cancelled: a run is two
+# dozen sequential writes to one dashboard, and killing it halfway leaves half the
+# tiles applied. Queue instead.
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  dashboard:
+    name: ${{ github.event_name == 'pull_request' && 'Dry run' || 'Update' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    # A fork's pull request cannot see the secret, so the dry run would fail on a
+    # missing key rather than on anything about the change.
+    if: >-
+      github.event_name != 'pull_request' ||
+      github.event.pull_request.head.repo.full_name == github.repository
+
+    steps:
+      - uses: actions/checkout@v5
+
+      # As in ci.yml: the script imports .ts directly and runs on
+      # --experimental-strip-types, so the Node version is load-bearing.
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: '.node-version'
+
+      # No npm ci, and so no cache to warm: the script uses fetch and process.env
+      # and nothing else, and `npm run` executes the script string without needing
+      # node_modules. If it ever grows a dependency this fails as a missing module,
+      # which is the right thing to read.
+      #
+      # A pull request only ever lists what would change. The write happens on main.
+      # Re-running after a failure is safe and is the recovery path: insights are
+      # matched by name and updated in place, so a run that died partway simply
+      # finishes the rest.
+      - name: Apply TILES
+        env:
+          POSTHOG_PERSONAL_API_KEY: ${{ secrets.POSTHOG_PERSONAL_API_KEY }}
+          POSTHOG_PROJECT_ID: ${{ vars.POSTHOG_PROJECT_ID }}
+        run: npm run posthog:dashboard ${{ github.event_name == 'pull_request' && '-- --dry-run' || '' }}

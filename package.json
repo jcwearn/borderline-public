@@ -1,0 +1,51 @@
+{
+  "name": "borderline",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run build:data && tsc -b && vite build",
+    "build:data": "node --experimental-strip-types scripts/build-data.ts",
+    "build:og": "node --experimental-strip-types scripts/build-og.ts",
+    "pin:served": "node --experimental-strip-types scripts/pin-served.ts",
+    "posthog:dashboard": "node --experimental-strip-types scripts/posthog-dashboard.ts",
+    "typecheck": "tsc -b",
+    "lint": "oxlint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:layout": "vitest run --config vitest.layout.config.ts",
+    "preview": "vite preview",
+    "pages:dev": "npm run build && wrangler pages dev --port 8788"
+  },
+  "allowScripts": {
+    "esbuild": true,
+    "fsevents": true,
+    "workerd": true
+  },
+  "dependencies": {
+    "posthog-js": "^1.415.3",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-globe.gl": "^2.38.0",
+    "three": "^0.185.1",
+    "topojson-client": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@types/three": "^0.185.4",
+    "@types/topojson-client": "^3.1.5",
+    "@vitejs/plugin-react": "^6.0.4",
+    "oxlint": "^1.75.0",
+    "prettier": "3.9.6",
+    "puppeteer": "^25.5.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.0",
+    "vitest": "^4.1.10",
+    "wrangler": "^4.120.0"
+  }
+}

@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b1020" />
+    <title>Borderline — privacy statement</title>
+
+    <!--
+      Standalone for the same reason public/404.html is: the app's stylesheet is
+      fingerprinted, and a page whose job is to be readable should not depend on
+      a build. The palette is the one in src/index.css.
+    -->
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #0b1020;
+        color: #e8ecf8;
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          'Segoe UI',
+          Roboto,
+          sans-serif;
+        line-height: 1.6;
+      }
+      main {
+        max-width: 40rem;
+        margin: 0 auto;
+        padding: 2.5rem 1.25rem 4rem;
+      }
+      h1 {
+        margin: 0 0 0.4rem;
+        font-size: 1.6rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      h2 {
+        margin: 2rem 0 0.5rem;
+        font-size: 1.05rem;
+        color: #e8ecf8;
+      }
+      p,
+      li {
+        color: #b9c2dd;
+      }
+      p {
+        margin: 0 0 0.9rem;
+      }
+      ul {
+        margin: 0 0 0.9rem;
+        padding-left: 1.2rem;
+      }
+      li {
+        margin-bottom: 0.35rem;
+      }
+      a {
+        color: #5ad1a0;
+      }
+      .lede {
+        color: #8f9ac0;
+      }
+      .updated {
+        margin-top: 2.5rem;
+        font-size: 0.85rem;
+        color: #6b769b;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Borderline</h1>
+      <p class="lede">What this game records, and what it does not.</p>
+
+      <p>
+        Borderline is a daily puzzle run as a personal project. There is no account, no advertising
+        and nothing sold to anybody. It does keep track of how the game is played, because that is
+        the only way to tell a puzzle that is hard from one that is broken.
+      </p>
+
+      <h2>What is recorded</h2>
+      <ul>
+        <li>That a round started, and whether it was today's puzzle or a free one</li>
+        <li>
+          The shape of the hole: its two countries, its par, and how many countries the day shut,
+          put in the rough or asked you to reach — so a puzzle that plays badly can be told from one
+          that is merely hard
+        </li>
+        <li>
+          Each guess: whether it was placed, bought, a miss, or turned away for costing nothing —
+          and how far into the round
+        </li>
+        <li>How a round ended — finished with its score, or left unfinished</li>
+        <li>Sharing a result, and building a free round</li>
+        <li>
+          Following the link that asks for a coffee, or waving it away — and how many rounds you had
+          finished when you did
+        </li>
+        <li>Whether the device is touch or pointer, so the phone layout can be judged</li>
+        <li>When something failed: the puzzle not loading, the globe not drawing</li>
+        <li>
+          That the page was opened, and when it was closed — so that arriving and never playing is
+          distinguishable from not arriving at all
+        </li>
+        <li>
+          A random identifier kept in your browser's local storage, so a round tomorrow can be
+          recognised as the same player's as today's — that is what a streak is. Your number of
+          finished rounds and your current and longest streaks are kept against it
+        </li>
+        <li>
+          Ordinary request information: browser, device type, the page that linked you here, and an
+          approximate location worked out from your IP address
+        </li>
+      </ul>
+
+      <h2>What is not</h2>
+      <p>
+        No name, no email address, no account — none is asked for and none exists. No cookies are
+        set. Your IP address is used to work out a rough location and is then discarded rather than
+        stored. Nothing here follows you to any other site, and no data is sold or shared for
+        advertising.
+      </p>
+      <p>
+        Once you have finished twenty rounds, the results card asks whether you would like to buy
+        the author a coffee. It is an ordinary link to
+        <a href="https://buymeacoffee.com/borderline.golf">Buy Me a Coffee</a> and nothing of theirs
+        is loaded into this page, so they learn nothing about you unless you follow it — and what
+        happens after you do is between you and them. Wave the ask away with the × beside it and it
+        does not come back.
+      </p>
+
+      <h2>If you are in Europe, none of that happens</h2>
+      <p>
+        Players in the EEA, the United Kingdom and Switzerland are not measured at all. No analytics
+        is loaded, no identifier is written to the device, no events are recorded — the decision is
+        made before anything is stored rather than after. What remains is what any web server sees
+        in the course of answering a request, which our host counts by country and which names
+        nobody.
+      </p>
+
+      <h2>Who processes it</h2>
+      <p>
+        Analytics is <a href="https://posthog.com/">PostHog</a>, on their US cloud, acting on our
+        instructions. The site itself is hosted by
+        <a href="https://www.cloudflare.com/">Cloudflare</a>, whose analytics is where that
+        country-level count lives. Events reach PostHog through this domain rather than through
+        PostHog's own addresses, which is a matter of not letting a blocklist decide which players
+        get counted — the data goes to the same place either way.
+      </p>
+
+      <h2>Why, and on what basis</h2>
+      <p>
+        The legitimate interest of understanding how the game is played, in order to make it better:
+        which puzzles nobody finishes, where people give up, whether the phone layout works. The
+        information above is what those questions need and no more.
+      </p>
+
+      <h2>How long</h2>
+      <p>Up to a year, which is as long as the analytics account retains anything.</p>
+
+      <h2>Turning it off</h2>
+      <p>
+        Turn on <em>Do Not Track</em> in your browser and nothing is recorded at all — the game
+        reads it and stays quiet. Clearing this site's data in your browser throws away the
+        identifier, and you become someone new. Any blocker that stops requests to
+        <code>/ingest</code> also works; the game itself does not need it.
+      </p>
+
+      <h2>Your rights, and their limits</h2>
+      <p>
+        You can ask what is held about you, ask for it to be deleted, or object to it being
+        collected at all. Be aware of the honest limit: with no account and only a random identifier
+        to go on, there is usually no way to connect what is stored to a person who asks. Clearing
+        the site's data is the fastest way to sever the link yourself.
+      </p>
+      <p>
+        Questions, or a request:
+        <a href="mailto:privacy@borderline.golf">privacy@borderline.golf</a>. If you are in the EU
+        or UK and unhappy with the answer, you may complain to your data protection authority.
+      </p>
+
+      <p class="updated">Last updated 11 August 2026. <a href="/">Back to today's puzzle</a></p>
+    </main>
+  </body>
+</html>

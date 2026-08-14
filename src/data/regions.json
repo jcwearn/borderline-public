@@ -1,0 +1,106 @@
+[
+ {
+  "name": "The Levant",
+  "countries": [
+   "SYR",
+   "LBN",
+   "ISR",
+   "JOR"
+  ]
+ },
+ {
+  "name": "The Anatolian and Iranian highlands",
+  "countries": [
+   "TUR",
+   "IRN"
+  ]
+ },
+ {
+  "name": "The Nile",
+  "countries": [
+   "EGY",
+   "SDN",
+   "SSD"
+  ]
+ },
+ {
+  "name": "The Maghreb",
+  "countries": [
+   "MAR",
+   "DZA",
+   "TUN",
+   "LBY"
+  ]
+ },
+ {
+  "name": "Central Europe",
+  "countries": [
+   "DEU",
+   "CZE",
+   "AUT",
+   "CHE"
+  ]
+ },
+ {
+  "name": "The Baltic shore",
+  "countries": [
+   "POL",
+   "LTU",
+   "LVA",
+   "EST",
+   "BLR"
+  ]
+ },
+ {
+  "name": "The Iberian Peninsula",
+  "countries": [
+   "ESP",
+   "PRT"
+  ]
+ },
+ {
+  "name": "The Caucasus",
+  "countries": [
+   "GEO",
+   "ARM",
+   "AZE"
+  ]
+ },
+ {
+  "name": "The Congo Basin",
+  "countries": [
+   "CMR",
+   "CAF",
+   "COD",
+   "COG",
+   "GAB"
+  ]
+ },
+ {
+  "name": "The Carpathians",
+  "countries": [
+   "ROU",
+   "HUN",
+   "SVK",
+   "UKR"
+  ]
+ },
+ {
+  "name": "The Alps",
+  "countries": [
+   "CHE",
+   "AUT",
+   "ITA",
+   "SVN"
+  ]
+ },
+ {
+  "name": "The Hindu Kush",
+  "countries": [
+   "AFG",
+   "PAK",
+   "TJK",
+   "UZB"
+  ]
+ }
+]

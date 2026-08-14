@@ -1,0 +1,3705 @@
+{
+ "AFG": {
+  "name": "Afghanistan",
+  "flag": "🇦🇫",
+  "ccn3": "004",
+  "latlng": [
+   33,
+   65
+  ],
+  "alt": [
+   "Islamic Republic of Afghanistan",
+   "AF",
+   "Afġānistān"
+  ],
+  "borders": [
+   "CHN",
+   "IRN",
+   "PAK",
+   "TJK",
+   "TKM",
+   "UZB"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "AGO": {
+  "name": "Angola",
+  "flag": "🇦🇴",
+  "ccn3": "024",
+  "latlng": [
+   -12.5,
+   18.5
+  ],
+  "alt": [
+   "Republic of Angola",
+   "AO",
+   "República de Angola",
+   "ʁɛpublika de an'ɡɔla"
+  ],
+  "borders": [
+   "COD",
+   "COG",
+   "NAM",
+   "ZMB"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "ALB": {
+  "name": "Albania",
+  "flag": "🇦🇱",
+  "ccn3": "008",
+  "latlng": [
+   41,
+   20
+  ],
+  "alt": [
+   "Republic of Albania",
+   "AL",
+   "Shqipëri",
+   "Shqipëria",
+   "Shqipnia"
+  ],
+  "borders": [
+   "GRC",
+   "MKD",
+   "MNE"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "ARE": {
+  "name": "United Arab Emirates",
+  "flag": "🇦🇪",
+  "ccn3": "784",
+  "latlng": [
+   24,
+   54
+  ],
+  "alt": [
+   "AE",
+   "UAE",
+   "Emirates"
+  ],
+  "borders": [
+   "OMN",
+   "SAU"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "ARG": {
+  "name": "Argentina",
+  "flag": "🇦🇷",
+  "ccn3": "032",
+  "latlng": [
+   -34,
+   -64
+  ],
+  "alt": [
+   "Argentine Republic",
+   "AR",
+   "República Argentina"
+  ],
+  "borders": [
+   "BOL",
+   "BRA",
+   "CHL",
+   "PRY",
+   "URY"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "ARM": {
+  "name": "Armenia",
+  "flag": "🇦🇲",
+  "ccn3": "051",
+  "latlng": [
+   40,
+   45
+  ],
+  "alt": [
+   "Republic of Armenia",
+   "AM",
+   "Hayastan",
+   "Հայաստանի Հանրապետություն"
+  ],
+  "borders": [
+   "AZE",
+   "GEO",
+   "IRN",
+   "TUR"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "AUS": {
+  "name": "Australia",
+  "flag": "🇦🇺",
+  "ccn3": "036",
+  "latlng": [
+   -27,
+   133
+  ],
+  "alt": [
+   "Commonwealth of Australia",
+   "AU"
+  ],
+  "borders": [],
+  "sea": [
+   "PNG"
+  ],
+  "component": 0
+ },
+ "AUT": {
+  "name": "Austria",
+  "flag": "🇦🇹",
+  "ccn3": "040",
+  "latlng": [
+   47.33333333,
+   13.33333333
+  ],
+  "alt": [
+   "Republic of Austria",
+   "AT",
+   "Osterreich",
+   "Oesterreich"
+  ],
+  "borders": [
+   "CHE",
+   "CZE",
+   "DEU",
+   "HUN",
+   "ITA",
+   "SVK",
+   "SVN"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "AZE": {
+  "name": "Azerbaijan",
+  "flag": "🇦🇿",
+  "ccn3": "031",
+  "latlng": [
+   40.5,
+   47.5
+  ],
+  "alt": [
+   "Republic of Azerbaijan",
+   "AZ",
+   "Azərbaycan Respublikası"
+  ],
+  "borders": [
+   "ARM",
+   "GEO",
+   "IRN",
+   "RUS",
+   "TUR"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "BDI": {
+  "name": "Burundi",
+  "flag": "🇧🇮",
+  "ccn3": "108",
+  "latlng": [
+   -3.5,
+   30
+  ],
+  "alt": [
+   "Republic of Burundi",
+   "BI",
+   "Republika y'Uburundi",
+   "République du Burundi"
+  ],
+  "borders": [
+   "COD",
+   "RWA",
+   "TZA"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "BEL": {
+  "name": "Belgium",
+  "flag": "🇧🇪",
+  "ccn3": "056",
+  "latlng": [
+   50.83333333,
+   4
+  ],
+  "alt": [
+   "Kingdom of Belgium",
+   "BE",
+   "België",
+   "Belgie",
+   "Belgien",
+   "Belgique",
+   "Koninkrijk België",
+   "Royaume de Belgique",
+   "Königreich Belgien"
+  ],
+  "borders": [
+   "DEU",
+   "FRA",
+   "LUX",
+   "NLD"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "BEN": {
+  "name": "Benin",
+  "flag": "🇧🇯",
+  "ccn3": "204",
+  "latlng": [
+   9.5,
+   2.25
+  ],
+  "alt": [
+   "Republic of Benin",
+   "BJ",
+   "République du Bénin"
+  ],
+  "borders": [
+   "BFA",
+   "NER",
+   "NGA",
+   "TGO"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "BFA": {
+  "name": "Burkina Faso",
+  "flag": "🇧🇫",
+  "ccn3": "854",
+  "latlng": [
+   13,
+   -2
+  ],
+  "alt": [
+   "BF"
+  ],
+  "borders": [
+   "BEN",
+   "CIV",
+   "GHA",
+   "MLI",
+   "NER",
+   "TGO"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "BGD": {
+  "name": "Bangladesh",
+  "flag": "🇧🇩",
+  "ccn3": "050",
+  "latlng": [
+   24,
+   90
+  ],
+  "alt": [
+   "People's Republic of Bangladesh",
+   "BD",
+   "Gônôprôjatôntri Bangladesh"
+  ],
+  "borders": [
+   "IND",
+   "MMR"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "BGR": {
+  "name": "Bulgaria",
+  "flag": "🇧🇬",
+  "ccn3": "100",
+  "latlng": [
+   43,
+   25
+  ],
+  "alt": [
+   "Republic of Bulgaria",
+   "BG",
+   "Република България"
+  ],
+  "borders": [
+   "GRC",
+   "MKD",
+   "ROU",
+   "SRB",
+   "TUR"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "BHS": {
+  "name": "Bahamas",
+  "flag": "🇧🇸",
+  "ccn3": "044",
+  "latlng": [
+   24.25,
+   -76
+  ],
+  "alt": [
+   "Commonwealth of the Bahamas",
+   "BS"
+  ],
+  "borders": [],
+  "sea": [
+   "USA"
+  ],
+  "component": 0
+ },
+ "BIH": {
+  "name": "Bosnia and Herzegovina",
+  "flag": "🇧🇦",
+  "ccn3": "070",
+  "latlng": [
+   44,
+   18
+  ],
+  "alt": [
+   "BA",
+   "Bosnia-Herzegovina",
+   "Босна и Херцеговина"
+  ],
+  "borders": [
+   "HRV",
+   "MNE",
+   "SRB"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "BLR": {
+  "name": "Belarus",
+  "flag": "🇧🇾",
+  "ccn3": "112",
+  "latlng": [
+   53,
+   28
+  ],
+  "alt": [
+   "Republic of Belarus",
+   "BY",
+   "Bielaruś",
+   "Белоруссия",
+   "Республика Белоруссия"
+  ],
+  "borders": [
+   "LTU",
+   "LVA",
+   "POL",
+   "RUS",
+   "UKR"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "BLZ": {
+  "name": "Belize",
+  "flag": "🇧🇿",
+  "ccn3": "084",
+  "latlng": [
+   17.25,
+   -88.75
+  ],
+  "alt": [
+   "BZ"
+  ],
+  "borders": [
+   "GTM",
+   "MEX"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "BOL": {
+  "name": "Bolivia",
+  "flag": "🇧🇴",
+  "ccn3": "068",
+  "latlng": [
+   -17,
+   -65
+  ],
+  "alt": [
+   "Plurinational State of Bolivia",
+   "BO",
+   "Buliwya",
+   "Wuliwya",
+   "Bolivia, Plurinational State of",
+   "Estado Plurinacional de Bolivia",
+   "Buliwya Mamallaqta",
+   "Wuliwya Suyu",
+   "Tetã Volívia"
+  ],
+  "borders": [
+   "ARG",
+   "BRA",
+   "CHL",
+   "PER",
+   "PRY"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "BRA": {
+  "name": "Brazil",
+  "flag": "🇧🇷",
+  "ccn3": "076",
+  "latlng": [
+   -10,
+   -55
+  ],
+  "alt": [
+   "Federative Republic of Brazil",
+   "BR",
+   "Brasil",
+   "República Federativa do Brasil"
+  ],
+  "borders": [
+   "ARG",
+   "BOL",
+   "COL",
+   "GUY",
+   "PER",
+   "PRY",
+   "SUR",
+   "URY",
+   "VEN"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "BRN": {
+  "name": "Brunei",
+  "flag": "🇧🇳",
+  "ccn3": "096",
+  "latlng": [
+   4.5,
+   114.66666666
+  ],
+  "alt": [
+   "Nation of Brunei, Abode of Peace",
+   "BN",
+   "Brunei Darussalam",
+   "Nation of Brunei",
+   "the Abode of Peace"
+  ],
+  "borders": [
+   "MYS"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "BTN": {
+  "name": "Bhutan",
+  "flag": "🇧🇹",
+  "ccn3": "064",
+  "latlng": [
+   27.5,
+   90.5
+  ],
+  "alt": [
+   "Kingdom of Bhutan",
+   "BT"
+  ],
+  "borders": [
+   "CHN",
+   "IND"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "BWA": {
+  "name": "Botswana",
+  "flag": "🇧🇼",
+  "ccn3": "072",
+  "latlng": [
+   -22,
+   24
+  ],
+  "alt": [
+   "Republic of Botswana",
+   "BW",
+   "Lefatshe la Botswana"
+  ],
+  "borders": [
+   "NAM",
+   "ZAF",
+   "ZMB",
+   "ZWE"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "CAF": {
+  "name": "Central African Republic",
+  "flag": "🇨🇫",
+  "ccn3": "140",
+  "latlng": [
+   7,
+   21
+  ],
+  "alt": [
+   "CF",
+   "République centrafricaine"
+  ],
+  "borders": [
+   "CMR",
+   "COD",
+   "COG",
+   "SDN",
+   "SSD",
+   "TCD"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "CAN": {
+  "name": "Canada",
+  "flag": "🇨🇦",
+  "ccn3": "124",
+  "latlng": [
+   60,
+   -95
+  ],
+  "alt": [
+   "CA"
+  ],
+  "borders": [
+   "USA"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "CHE": {
+  "name": "Switzerland",
+  "flag": "🇨🇭",
+  "ccn3": "756",
+  "latlng": [
+   47,
+   8
+  ],
+  "alt": [
+   "Swiss Confederation",
+   "CH",
+   "Schweiz",
+   "Suisse",
+   "Svizzera",
+   "Svizra"
+  ],
+  "borders": [
+   "AUT",
+   "DEU",
+   "FRA",
+   "ITA"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "CHL": {
+  "name": "Chile",
+  "flag": "🇨🇱",
+  "ccn3": "152",
+  "latlng": [
+   -30,
+   -71
+  ],
+  "alt": [
+   "Republic of Chile",
+   "CL",
+   "República de Chile"
+  ],
+  "borders": [
+   "ARG",
+   "BOL",
+   "PER"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "CHN": {
+  "name": "China",
+  "flag": "🇨🇳",
+  "ccn3": "156",
+  "latlng": [
+   35,
+   105
+  ],
+  "alt": [
+   "People's Republic of China",
+   "CN",
+   "Zhōngguó",
+   "Zhongguo",
+   "Zhonghua",
+   "中华人民共和国",
+   "Zhōnghuá Rénmín Gònghéguó"
+  ],
+  "borders": [
+   "AFG",
+   "BTN",
+   "IND",
+   "KAZ",
+   "KGZ",
+   "LAO",
+   "MMR",
+   "MNG",
+   "NPL",
+   "PAK",
+   "PRK",
+   "RUS",
+   "TJK",
+   "VNM"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "CIV": {
+  "name": "Ivory Coast",
+  "flag": "🇨🇮",
+  "ccn3": "384",
+  "latlng": [
+   8,
+   -5
+  ],
+  "alt": [
+   "Republic of Côte d'Ivoire",
+   "CI",
+   "Côte d'Ivoire",
+   "Cote d'Ivoire",
+   "République de Côte d'Ivoire"
+  ],
+  "borders": [
+   "BFA",
+   "GHA",
+   "GIN",
+   "LBR",
+   "MLI"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "CMR": {
+  "name": "Cameroon",
+  "flag": "🇨🇲",
+  "ccn3": "120",
+  "latlng": [
+   6,
+   12
+  ],
+  "alt": [
+   "Republic of Cameroon",
+   "CM",
+   "République du Cameroun"
+  ],
+  "borders": [
+   "CAF",
+   "COG",
+   "GAB",
+   "GNQ",
+   "NGA",
+   "TCD"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "COD": {
+  "name": "DR Congo",
+  "flag": "🇨🇩",
+  "ccn3": "180",
+  "latlng": [
+   0,
+   25
+  ],
+  "alt": [
+   "Democratic Republic of the Congo",
+   "CD",
+   "Congo-Kinshasa",
+   "Congo, the Democratic Republic of the",
+   "Democratic Republic of Congo",
+   "DRC"
+  ],
+  "borders": [
+   "AGO",
+   "BDI",
+   "CAF",
+   "COG",
+   "RWA",
+   "SSD",
+   "TZA",
+   "UGA",
+   "ZMB"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "COG": {
+  "name": "Congo",
+  "flag": "🇨🇬",
+  "ccn3": "178",
+  "latlng": [
+   -1,
+   15
+  ],
+  "alt": [
+   "Republic of the Congo",
+   "CG",
+   "Congo-Brazzaville"
+  ],
+  "borders": [
+   "AGO",
+   "CAF",
+   "CMR",
+   "COD",
+   "GAB"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "COL": {
+  "name": "Colombia",
+  "flag": "🇨🇴",
+  "ccn3": "170",
+  "latlng": [
+   4,
+   -72
+  ],
+  "alt": [
+   "Republic of Colombia",
+   "CO",
+   "República de Colombia"
+  ],
+  "borders": [
+   "BRA",
+   "ECU",
+   "PAN",
+   "PER",
+   "VEN"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "CRI": {
+  "name": "Costa Rica",
+  "flag": "🇨🇷",
+  "ccn3": "188",
+  "latlng": [
+   10,
+   -84
+  ],
+  "alt": [
+   "Republic of Costa Rica",
+   "CR",
+   "República de Costa Rica"
+  ],
+  "borders": [
+   "NIC",
+   "PAN"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "CUB": {
+  "name": "Cuba",
+  "flag": "🇨🇺",
+  "ccn3": "192",
+  "latlng": [
+   21.5,
+   -80
+  ],
+  "alt": [
+   "Republic of Cuba",
+   "CU",
+   "República de Cuba"
+  ],
+  "borders": [],
+  "sea": [
+   "HTI",
+   "JAM",
+   "MEX"
+  ],
+  "component": 0
+ },
+ "CYP": {
+  "name": "Cyprus",
+  "flag": "🇨🇾",
+  "ccn3": "196",
+  "latlng": [
+   35,
+   33
+  ],
+  "alt": [
+   "Republic of Cyprus",
+   "CY",
+   "Kýpros",
+   "Kıbrıs",
+   "Κυπριακή Δημοκρατία",
+   "Kıbrıs Cumhuriyeti"
+  ],
+  "borders": [],
+  "sea": [
+   "TUR"
+  ],
+  "component": 0
+ },
+ "CZE": {
+  "name": "Czechia",
+  "flag": "🇨🇿",
+  "ccn3": "203",
+  "latlng": [
+   49.75,
+   15.5
+  ],
+  "alt": [
+   "Czech Republic",
+   "CZ",
+   "Česká republika",
+   "Česko"
+  ],
+  "borders": [
+   "AUT",
+   "DEU",
+   "POL",
+   "SVK"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "DEU": {
+  "name": "Germany",
+  "flag": "🇩🇪",
+  "ccn3": "276",
+  "latlng": [
+   51,
+   9
+  ],
+  "alt": [
+   "Federal Republic of Germany",
+   "DE",
+   "Bundesrepublik Deutschland"
+  ],
+  "borders": [
+   "AUT",
+   "BEL",
+   "CHE",
+   "CZE",
+   "DNK",
+   "FRA",
+   "LUX",
+   "NLD",
+   "POL"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "DJI": {
+  "name": "Djibouti",
+  "flag": "🇩🇯",
+  "ccn3": "262",
+  "latlng": [
+   11.5,
+   43
+  ],
+  "alt": [
+   "Republic of Djibouti",
+   "DJ",
+   "Jabuuti",
+   "Gabuuti",
+   "République de Djibouti",
+   "Gabuutih Ummuuno",
+   "Jamhuuriyadda Jabuuti"
+  ],
+  "borders": [
+   "ERI",
+   "ETH",
+   "SOM"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "DNK": {
+  "name": "Denmark",
+  "flag": "🇩🇰",
+  "ccn3": "208",
+  "latlng": [
+   56,
+   10
+  ],
+  "alt": [
+   "Kingdom of Denmark",
+   "DK",
+   "Danmark",
+   "Kongeriget Danmark"
+  ],
+  "borders": [
+   "DEU"
+  ],
+  "sea": [
+   "ISL"
+  ],
+  "component": 0
+ },
+ "DOM": {
+  "name": "Dominican Republic",
+  "flag": "🇩🇴",
+  "ccn3": "214",
+  "latlng": [
+   19,
+   -70.66666666
+  ],
+  "alt": [
+   "DO"
+  ],
+  "borders": [
+   "HTI"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "DZA": {
+  "name": "Algeria",
+  "flag": "🇩🇿",
+  "ccn3": "012",
+  "latlng": [
+   28,
+   3
+  ],
+  "alt": [
+   "People's Democratic Republic of Algeria",
+   "DZ",
+   "Dzayer",
+   "Algérie"
+  ],
+  "borders": [
+   "LBY",
+   "MAR",
+   "MLI",
+   "MRT",
+   "NER",
+   "TUN"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "ECU": {
+  "name": "Ecuador",
+  "flag": "🇪🇨",
+  "ccn3": "218",
+  "latlng": [
+   -2,
+   -77.5
+  ],
+  "alt": [
+   "Republic of Ecuador",
+   "EC",
+   "República del Ecuador"
+  ],
+  "borders": [
+   "COL",
+   "PER"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "EGY": {
+  "name": "Egypt",
+  "flag": "🇪🇬",
+  "ccn3": "818",
+  "latlng": [
+   27,
+   30
+  ],
+  "alt": [
+   "Arab Republic of Egypt",
+   "EG"
+  ],
+  "borders": [
+   "ISR",
+   "LBY",
+   "SDN"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "ERI": {
+  "name": "Eritrea",
+  "flag": "🇪🇷",
+  "ccn3": "232",
+  "latlng": [
+   15,
+   39
+  ],
+  "alt": [
+   "State of Eritrea",
+   "ER",
+   "ሃገረ ኤርትራ",
+   "Dawlat Iritriyá",
+   "ʾErtrā",
+   "Iritriyā"
+  ],
+  "borders": [
+   "DJI",
+   "ETH",
+   "SDN"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "ESP": {
+  "name": "Spain",
+  "flag": "🇪🇸",
+  "ccn3": "724",
+  "latlng": [
+   40,
+   -4
+  ],
+  "alt": [
+   "Kingdom of Spain",
+   "ES",
+   "Reino de España"
+  ],
+  "borders": [
+   "FRA",
+   "MAR",
+   "PRT"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "EST": {
+  "name": "Estonia",
+  "flag": "🇪🇪",
+  "ccn3": "233",
+  "latlng": [
+   59,
+   26
+  ],
+  "alt": [
+   "Republic of Estonia",
+   "EE",
+   "Eesti",
+   "Eesti Vabariik"
+  ],
+  "borders": [
+   "LVA",
+   "RUS"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "ETH": {
+  "name": "Ethiopia",
+  "flag": "🇪🇹",
+  "ccn3": "231",
+  "latlng": [
+   8,
+   38
+  ],
+  "alt": [
+   "Federal Democratic Republic of Ethiopia",
+   "ET",
+   "ʾĪtyōṗṗyā",
+   "የኢትዮጵያ ፌዴራላዊ ዲሞክራሲያዊ ሪፐብሊክ"
+  ],
+  "borders": [
+   "DJI",
+   "ERI",
+   "KEN",
+   "SDN",
+   "SOM",
+   "SSD"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "FIN": {
+  "name": "Finland",
+  "flag": "🇫🇮",
+  "ccn3": "246",
+  "latlng": [
+   64,
+   26
+  ],
+  "alt": [
+   "Republic of Finland",
+   "FI",
+   "Suomi",
+   "Suomen tasavalta",
+   "Republiken Finland"
+  ],
+  "borders": [
+   "NOR",
+   "RUS",
+   "SWE"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "FJI": {
+  "name": "Fiji",
+  "flag": "🇫🇯",
+  "ccn3": "242",
+  "latlng": [
+   -18,
+   175
+  ],
+  "alt": [
+   "Republic of Fiji",
+   "FJ",
+   "Viti",
+   "Matanitu ko Viti",
+   "Fijī Gaṇarājya"
+  ],
+  "borders": [],
+  "sea": [],
+  "component": 1
+ },
+ "FRA": {
+  "name": "France",
+  "flag": "🇫🇷",
+  "ccn3": "250",
+  "latlng": [
+   46,
+   2
+  ],
+  "alt": [
+   "French Republic",
+   "FR",
+   "République française"
+  ],
+  "borders": [
+   "BEL",
+   "CHE",
+   "DEU",
+   "ESP",
+   "ITA",
+   "LUX"
+  ],
+  "sea": [
+   "GBR"
+  ],
+  "component": 0
+ },
+ "GAB": {
+  "name": "Gabon",
+  "flag": "🇬🇦",
+  "ccn3": "266",
+  "latlng": [
+   -1,
+   11.75
+  ],
+  "alt": [
+   "Gabonese Republic",
+   "GA",
+   "République Gabonaise"
+  ],
+  "borders": [
+   "CMR",
+   "COG",
+   "GNQ"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "GBR": {
+  "name": "United Kingdom",
+  "flag": "🇬🇧",
+  "ccn3": "826",
+  "latlng": [
+   54,
+   -2
+  ],
+  "alt": [
+   "United Kingdom of Great Britain and Northern Ireland",
+   "GB",
+   "UK",
+   "Great Britain"
+  ],
+  "borders": [
+   "IRL"
+  ],
+  "sea": [
+   "FRA"
+  ],
+  "component": 0
+ },
+ "GEO": {
+  "name": "Georgia",
+  "flag": "🇬🇪",
+  "ccn3": "268",
+  "latlng": [
+   42,
+   43.5
+  ],
+  "alt": [
+   "GE",
+   "Sakartvelo"
+  ],
+  "borders": [
+   "ARM",
+   "AZE",
+   "RUS",
+   "TUR"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "GHA": {
+  "name": "Ghana",
+  "flag": "🇬🇭",
+  "ccn3": "288",
+  "latlng": [
+   8,
+   -2
+  ],
+  "alt": [
+   "Republic of Ghana",
+   "GH"
+  ],
+  "borders": [
+   "BFA",
+   "CIV",
+   "TGO"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "GIN": {
+  "name": "Guinea",
+  "flag": "🇬🇳",
+  "ccn3": "324",
+  "latlng": [
+   11,
+   -10
+  ],
+  "alt": [
+   "Republic of Guinea",
+   "GN",
+   "République de Guinée"
+  ],
+  "borders": [
+   "CIV",
+   "GNB",
+   "LBR",
+   "MLI",
+   "SEN",
+   "SLE"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "GMB": {
+  "name": "Gambia",
+  "flag": "🇬🇲",
+  "ccn3": "270",
+  "latlng": [
+   13.46666666,
+   -16.56666666
+  ],
+  "alt": [
+   "Republic of the Gambia",
+   "GM"
+  ],
+  "borders": [
+   "SEN"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "GNB": {
+  "name": "Guinea-Bissau",
+  "flag": "🇬🇼",
+  "ccn3": "624",
+  "latlng": [
+   12,
+   -15
+  ],
+  "alt": [
+   "Republic of Guinea-Bissau",
+   "GW",
+   "República da Guiné-Bissau"
+  ],
+  "borders": [
+   "GIN",
+   "SEN"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "GNQ": {
+  "name": "Equatorial Guinea",
+  "flag": "🇬🇶",
+  "ccn3": "226",
+  "latlng": [
+   2,
+   10
+  ],
+  "alt": [
+   "Republic of Equatorial Guinea",
+   "GQ",
+   "República de Guinea Ecuatorial",
+   "République de Guinée équatoriale",
+   "República da Guiné Equatorial"
+  ],
+  "borders": [
+   "CMR",
+   "GAB"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "GRC": {
+  "name": "Greece",
+  "flag": "🇬🇷",
+  "ccn3": "300",
+  "latlng": [
+   39,
+   22
+  ],
+  "alt": [
+   "Hellenic Republic",
+   "GR",
+   "Elláda",
+   "Ελληνική Δημοκρατία"
+  ],
+  "borders": [
+   "ALB",
+   "BGR",
+   "MKD",
+   "TUR"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "GTM": {
+  "name": "Guatemala",
+  "flag": "🇬🇹",
+  "ccn3": "320",
+  "latlng": [
+   15.5,
+   -90.25
+  ],
+  "alt": [
+   "Republic of Guatemala",
+   "GT"
+  ],
+  "borders": [
+   "BLZ",
+   "HND",
+   "MEX",
+   "SLV"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "GUY": {
+  "name": "Guyana",
+  "flag": "🇬🇾",
+  "ccn3": "328",
+  "latlng": [
+   5,
+   -59
+  ],
+  "alt": [
+   "Co-operative Republic of Guyana",
+   "GY"
+  ],
+  "borders": [
+   "BRA",
+   "SUR",
+   "VEN"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "HND": {
+  "name": "Honduras",
+  "flag": "🇭🇳",
+  "ccn3": "340",
+  "latlng": [
+   15,
+   -86.5
+  ],
+  "alt": [
+   "Republic of Honduras",
+   "HN",
+   "República de Honduras"
+  ],
+  "borders": [
+   "GTM",
+   "NIC",
+   "SLV"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "HRV": {
+  "name": "Croatia",
+  "flag": "🇭🇷",
+  "ccn3": "191",
+  "latlng": [
+   45.16666666,
+   15.5
+  ],
+  "alt": [
+   "Republic of Croatia",
+   "HR",
+   "Hrvatska",
+   "Republika Hrvatska"
+  ],
+  "borders": [
+   "BIH",
+   "HUN",
+   "MNE",
+   "SRB",
+   "SVN"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "HTI": {
+  "name": "Haiti",
+  "flag": "🇭🇹",
+  "ccn3": "332",
+  "latlng": [
+   19,
+   -72.41666666
+  ],
+  "alt": [
+   "Republic of Haiti",
+   "HT",
+   "République d'Haïti",
+   "Repiblik Ayiti"
+  ],
+  "borders": [
+   "DOM"
+  ],
+  "sea": [
+   "CUB"
+  ],
+  "component": 0
+ },
+ "HUN": {
+  "name": "Hungary",
+  "flag": "🇭🇺",
+  "ccn3": "348",
+  "latlng": [
+   47,
+   20
+  ],
+  "alt": [
+   "HU"
+  ],
+  "borders": [
+   "AUT",
+   "HRV",
+   "ROU",
+   "SRB",
+   "SVK",
+   "SVN",
+   "UKR"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "IDN": {
+  "name": "Indonesia",
+  "flag": "🇮🇩",
+  "ccn3": "360",
+  "latlng": [
+   -5,
+   120
+  ],
+  "alt": [
+   "Republic of Indonesia",
+   "ID",
+   "Republik Indonesia"
+  ],
+  "borders": [
+   "MYS",
+   "PNG",
+   "TLS"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "IND": {
+  "name": "India",
+  "flag": "🇮🇳",
+  "ccn3": "356",
+  "latlng": [
+   20,
+   77
+  ],
+  "alt": [
+   "Republic of India",
+   "IN",
+   "Bhārat",
+   "Bharat Ganrajya",
+   "இந்தியா"
+  ],
+  "borders": [
+   "BGD",
+   "BTN",
+   "CHN",
+   "MMR",
+   "NPL",
+   "PAK"
+  ],
+  "sea": [
+   "LKA"
+  ],
+  "component": 0
+ },
+ "IRL": {
+  "name": "Ireland",
+  "flag": "🇮🇪",
+  "ccn3": "372",
+  "latlng": [
+   53,
+   -8
+  ],
+  "alt": [
+   "Republic of Ireland",
+   "IE",
+   "Éire",
+   "Poblacht na hÉireann"
+  ],
+  "borders": [
+   "GBR"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "IRN": {
+  "name": "Iran",
+  "flag": "🇮🇷",
+  "ccn3": "364",
+  "latlng": [
+   32,
+   53
+  ],
+  "alt": [
+   "Islamic Republic of Iran",
+   "IR",
+   "Iran, Islamic Republic of",
+   "Jomhuri-ye Eslāmi-ye Irān"
+  ],
+  "borders": [
+   "AFG",
+   "ARM",
+   "AZE",
+   "IRQ",
+   "PAK",
+   "TKM",
+   "TUR"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "IRQ": {
+  "name": "Iraq",
+  "flag": "🇮🇶",
+  "ccn3": "368",
+  "latlng": [
+   33,
+   44
+  ],
+  "alt": [
+   "Republic of Iraq",
+   "IQ",
+   "Jumhūriyyat al-‘Irāq"
+  ],
+  "borders": [
+   "IRN",
+   "JOR",
+   "KWT",
+   "SAU",
+   "SYR",
+   "TUR"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "ISL": {
+  "name": "Iceland",
+  "flag": "🇮🇸",
+  "ccn3": "352",
+  "latlng": [
+   65,
+   -18
+  ],
+  "alt": [
+   "IS",
+   "Island",
+   "Republic of Iceland",
+   "Lýðveldið Ísland"
+  ],
+  "borders": [],
+  "sea": [
+   "DNK"
+  ],
+  "component": 0
+ },
+ "ISR": {
+  "name": "Israel",
+  "flag": "🇮🇱",
+  "ccn3": "376",
+  "latlng": [
+   31.47,
+   35.13
+  ],
+  "alt": [
+   "State of Israel",
+   "IL",
+   "Medīnat Yisrā'el"
+  ],
+  "borders": [
+   "EGY",
+   "JOR",
+   "LBN",
+   "SYR"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "ITA": {
+  "name": "Italy",
+  "flag": "🇮🇹",
+  "ccn3": "380",
+  "latlng": [
+   42.83333333,
+   12.83333333
+  ],
+  "alt": [
+   "Italian Republic",
+   "IT",
+   "Repubblica italiana"
+  ],
+  "borders": [
+   "AUT",
+   "CHE",
+   "FRA",
+   "SVN"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "JAM": {
+  "name": "Jamaica",
+  "flag": "🇯🇲",
+  "ccn3": "388",
+  "latlng": [
+   18.25,
+   -77.5
+  ],
+  "alt": [
+   "JM"
+  ],
+  "borders": [],
+  "sea": [
+   "CUB"
+  ],
+  "component": 0
+ },
+ "JOR": {
+  "name": "Jordan",
+  "flag": "🇯🇴",
+  "ccn3": "400",
+  "latlng": [
+   31,
+   36
+  ],
+  "alt": [
+   "Hashemite Kingdom of Jordan",
+   "JO",
+   "al-Mamlakah al-Urdunīyah al-Hāshimīyah"
+  ],
+  "borders": [
+   "IRQ",
+   "ISR",
+   "SAU",
+   "SYR"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "JPN": {
+  "name": "Japan",
+  "flag": "🇯🇵",
+  "ccn3": "392",
+  "latlng": [
+   36,
+   138
+  ],
+  "alt": [
+   "JP",
+   "Nippon",
+   "Nihon"
+  ],
+  "borders": [],
+  "sea": [
+   "KOR"
+  ],
+  "component": 0
+ },
+ "KAZ": {
+  "name": "Kazakhstan",
+  "flag": "🇰🇿",
+  "ccn3": "398",
+  "latlng": [
+   48,
+   68
+  ],
+  "alt": [
+   "Republic of Kazakhstan",
+   "KZ",
+   "Qazaqstan",
+   "Казахстан",
+   "Қазақстан Республикасы",
+   "Qazaqstan Respublïkası",
+   "Республика Казахстан",
+   "Respublika Kazakhstan"
+  ],
+  "borders": [
+   "CHN",
+   "KGZ",
+   "RUS",
+   "TKM",
+   "UZB"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "KEN": {
+  "name": "Kenya",
+  "flag": "🇰🇪",
+  "ccn3": "404",
+  "latlng": [
+   1,
+   38
+  ],
+  "alt": [
+   "Republic of Kenya",
+   "KE",
+   "Jamhuri ya Kenya"
+  ],
+  "borders": [
+   "ETH",
+   "SOM",
+   "SSD",
+   "TZA",
+   "UGA"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "KGZ": {
+  "name": "Kyrgyzstan",
+  "flag": "🇰🇬",
+  "ccn3": "417",
+  "latlng": [
+   41,
+   75
+  ],
+  "alt": [
+   "Kyrgyz Republic",
+   "KG",
+   "Киргизия",
+   "Кыргыз Республикасы",
+   "Kyrgyz Respublikasy"
+  ],
+  "borders": [
+   "CHN",
+   "KAZ",
+   "TJK",
+   "UZB"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "KHM": {
+  "name": "Cambodia",
+  "flag": "🇰🇭",
+  "ccn3": "116",
+  "latlng": [
+   13,
+   105
+  ],
+  "alt": [
+   "Kingdom of Cambodia",
+   "KH"
+  ],
+  "borders": [
+   "LAO",
+   "THA",
+   "VNM"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "KOR": {
+  "name": "South Korea",
+  "flag": "🇰🇷",
+  "ccn3": "410",
+  "latlng": [
+   37,
+   127.5
+  ],
+  "alt": [
+   "Republic of Korea",
+   "KR",
+   "Korea, Republic of",
+   "남한",
+   "남조선"
+  ],
+  "borders": [
+   "PRK"
+  ],
+  "sea": [
+   "JPN"
+  ],
+  "component": 0
+ },
+ "KWT": {
+  "name": "Kuwait",
+  "flag": "🇰🇼",
+  "ccn3": "414",
+  "latlng": [
+   29.5,
+   45.75
+  ],
+  "alt": [
+   "State of Kuwait",
+   "KW",
+   "Dawlat al-Kuwait"
+  ],
+  "borders": [
+   "IRQ",
+   "SAU"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "LAO": {
+  "name": "Laos",
+  "flag": "🇱🇦",
+  "ccn3": "418",
+  "latlng": [
+   18,
+   105
+  ],
+  "alt": [
+   "Lao People's Democratic Republic",
+   "LA",
+   "Lao",
+   "Sathalanalat Paxathipatai Paxaxon Lao"
+  ],
+  "borders": [
+   "CHN",
+   "KHM",
+   "MMR",
+   "THA",
+   "VNM"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "LBN": {
+  "name": "Lebanon",
+  "flag": "🇱🇧",
+  "ccn3": "422",
+  "latlng": [
+   33.83333333,
+   35.83333333
+  ],
+  "alt": [
+   "Lebanese Republic",
+   "LB",
+   "Al-Jumhūrīyah Al-Libnānīyah"
+  ],
+  "borders": [
+   "ISR",
+   "SYR"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "LBR": {
+  "name": "Liberia",
+  "flag": "🇱🇷",
+  "ccn3": "430",
+  "latlng": [
+   6.5,
+   -9.5
+  ],
+  "alt": [
+   "Republic of Liberia",
+   "LR"
+  ],
+  "borders": [
+   "CIV",
+   "GIN",
+   "SLE"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "LBY": {
+  "name": "Libya",
+  "flag": "🇱🇾",
+  "ccn3": "434",
+  "latlng": [
+   25,
+   17
+  ],
+  "alt": [
+   "State of Libya",
+   "LY",
+   "Dawlat Libya"
+  ],
+  "borders": [
+   "DZA",
+   "EGY",
+   "NER",
+   "SDN",
+   "TCD",
+   "TUN"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "LKA": {
+  "name": "Sri Lanka",
+  "flag": "🇱🇰",
+  "ccn3": "144",
+  "latlng": [
+   7,
+   81
+  ],
+  "alt": [
+   "Democratic Socialist Republic of Sri Lanka",
+   "LK",
+   "ilaṅkai"
+  ],
+  "borders": [],
+  "sea": [
+   "IND"
+  ],
+  "component": 0
+ },
+ "LSO": {
+  "name": "Lesotho",
+  "flag": "🇱🇸",
+  "ccn3": "426",
+  "latlng": [
+   -29.5,
+   28.5
+  ],
+  "alt": [
+   "Kingdom of Lesotho",
+   "LS",
+   "Muso oa Lesotho"
+  ],
+  "borders": [
+   "ZAF"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "LTU": {
+  "name": "Lithuania",
+  "flag": "🇱🇹",
+  "ccn3": "440",
+  "latlng": [
+   56,
+   24
+  ],
+  "alt": [
+   "Republic of Lithuania",
+   "LT",
+   "Lietuvos Respublika"
+  ],
+  "borders": [
+   "BLR",
+   "LVA",
+   "POL",
+   "RUS"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "LUX": {
+  "name": "Luxembourg",
+  "flag": "🇱🇺",
+  "ccn3": "442",
+  "latlng": [
+   49.75,
+   6.16666666
+  ],
+  "alt": [
+   "Grand Duchy of Luxembourg",
+   "LU",
+   "Grand-Duché de Luxembourg",
+   "Großherzogtum Luxemburg",
+   "Groussherzogtum Lëtzebuerg"
+  ],
+  "borders": [
+   "BEL",
+   "DEU",
+   "FRA"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "LVA": {
+  "name": "Latvia",
+  "flag": "🇱🇻",
+  "ccn3": "428",
+  "latlng": [
+   57,
+   25
+  ],
+  "alt": [
+   "Republic of Latvia",
+   "LV",
+   "Latvijas Republika"
+  ],
+  "borders": [
+   "BLR",
+   "EST",
+   "LTU",
+   "RUS"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "MAR": {
+  "name": "Morocco",
+  "flag": "🇲🇦",
+  "ccn3": "504",
+  "latlng": [
+   32,
+   -5
+  ],
+  "alt": [
+   "Kingdom of Morocco",
+   "MA",
+   "Al-Mamlakah al-Maġribiyah"
+  ],
+  "borders": [
+   "DZA",
+   "ESP"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "MDA": {
+  "name": "Moldova",
+  "flag": "🇲🇩",
+  "ccn3": "498",
+  "latlng": [
+   47,
+   29
+  ],
+  "alt": [
+   "Republic of Moldova",
+   "MD",
+   "Moldova, Republic of",
+   "Republica Moldova"
+  ],
+  "borders": [
+   "ROU",
+   "UKR"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "MDG": {
+  "name": "Madagascar",
+  "flag": "🇲🇬",
+  "ccn3": "450",
+  "latlng": [
+   -20,
+   47
+  ],
+  "alt": [
+   "Republic of Madagascar",
+   "MG",
+   "Repoblikan'i Madagasikara",
+   "République de Madagascar"
+  ],
+  "borders": [],
+  "sea": [
+   "MOZ"
+  ],
+  "component": 0
+ },
+ "MEX": {
+  "name": "Mexico",
+  "flag": "🇲🇽",
+  "ccn3": "484",
+  "latlng": [
+   23,
+   -102
+  ],
+  "alt": [
+   "United Mexican States",
+   "MX",
+   "Mexicanos",
+   "Estados Unidos Mexicanos"
+  ],
+  "borders": [
+   "BLZ",
+   "GTM",
+   "USA"
+  ],
+  "sea": [
+   "CUB"
+  ],
+  "component": 0
+ },
+ "MKD": {
+  "name": "North Macedonia",
+  "flag": "🇲🇰",
+  "ccn3": "807",
+  "latlng": [
+   41.83333333,
+   22
+  ],
+  "alt": [
+   "Republic of North Macedonia",
+   "MK",
+   "The former Yugoslav Republic of Macedonia",
+   "Macedonia, The Former Yugoslav Republic of",
+   "Република Северна Македонија",
+   "Macedonia"
+  ],
+  "borders": [
+   "ALB",
+   "BGR",
+   "GRC",
+   "SRB"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "MLI": {
+  "name": "Mali",
+  "flag": "🇲🇱",
+  "ccn3": "466",
+  "latlng": [
+   17,
+   -4
+  ],
+  "alt": [
+   "Republic of Mali",
+   "ML",
+   "République du Mali"
+  ],
+  "borders": [
+   "BFA",
+   "CIV",
+   "DZA",
+   "GIN",
+   "MRT",
+   "NER",
+   "SEN"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "MMR": {
+  "name": "Myanmar",
+  "flag": "🇲🇲",
+  "ccn3": "104",
+  "latlng": [
+   22,
+   98
+  ],
+  "alt": [
+   "Republic of the Union of Myanmar",
+   "MM",
+   "Burma",
+   "Pyidaunzu Thanmăda Myăma Nainngandaw"
+  ],
+  "borders": [
+   "BGD",
+   "CHN",
+   "IND",
+   "LAO",
+   "THA"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "MNE": {
+  "name": "Montenegro",
+  "flag": "🇲🇪",
+  "ccn3": "499",
+  "latlng": [
+   42.5,
+   19.3
+  ],
+  "alt": [
+   "ME",
+   "Crna Gora"
+  ],
+  "borders": [
+   "ALB",
+   "BIH",
+   "HRV",
+   "SRB"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "MNG": {
+  "name": "Mongolia",
+  "flag": "🇲🇳",
+  "ccn3": "496",
+  "latlng": [
+   46,
+   105
+  ],
+  "alt": [
+   "MN"
+  ],
+  "borders": [
+   "CHN",
+   "RUS"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "MOZ": {
+  "name": "Mozambique",
+  "flag": "🇲🇿",
+  "ccn3": "508",
+  "latlng": [
+   -18.25,
+   35
+  ],
+  "alt": [
+   "Republic of Mozambique",
+   "MZ",
+   "República de Moçambique"
+  ],
+  "borders": [
+   "MWI",
+   "SWZ",
+   "TZA",
+   "ZAF",
+   "ZMB",
+   "ZWE"
+  ],
+  "sea": [
+   "MDG"
+  ],
+  "component": 0
+ },
+ "MRT": {
+  "name": "Mauritania",
+  "flag": "🇲🇷",
+  "ccn3": "478",
+  "latlng": [
+   20,
+   -12
+  ],
+  "alt": [
+   "Islamic Republic of Mauritania",
+   "MR",
+   "al-Jumhūriyyah al-ʾIslāmiyyah al-Mūrītāniyyah"
+  ],
+  "borders": [
+   "DZA",
+   "MLI",
+   "SEN"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "MWI": {
+  "name": "Malawi",
+  "flag": "🇲🇼",
+  "ccn3": "454",
+  "latlng": [
+   -13.5,
+   34
+  ],
+  "alt": [
+   "Republic of Malawi",
+   "MW"
+  ],
+  "borders": [
+   "MOZ",
+   "TZA",
+   "ZMB"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "MYS": {
+  "name": "Malaysia",
+  "flag": "🇲🇾",
+  "ccn3": "458",
+  "latlng": [
+   2.5,
+   112.5
+  ],
+  "alt": [
+   "MY"
+  ],
+  "borders": [
+   "BRN",
+   "IDN",
+   "THA"
+  ],
+  "sea": [
+   "PHL"
+  ],
+  "component": 0
+ },
+ "NAM": {
+  "name": "Namibia",
+  "flag": "🇳🇦",
+  "ccn3": "516",
+  "latlng": [
+   -22,
+   17
+  ],
+  "alt": [
+   "Republic of Namibia",
+   "NA",
+   "Namibië"
+  ],
+  "borders": [
+   "AGO",
+   "BWA",
+   "ZAF",
+   "ZMB"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "NER": {
+  "name": "Niger",
+  "flag": "🇳🇪",
+  "ccn3": "562",
+  "latlng": [
+   16,
+   8
+  ],
+  "alt": [
+   "Republic of Niger",
+   "NE",
+   "Nijar"
+  ],
+  "borders": [
+   "BEN",
+   "BFA",
+   "DZA",
+   "LBY",
+   "MLI",
+   "NGA",
+   "TCD"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "NGA": {
+  "name": "Nigeria",
+  "flag": "🇳🇬",
+  "ccn3": "566",
+  "latlng": [
+   10,
+   8
+  ],
+  "alt": [
+   "Federal Republic of Nigeria",
+   "NG",
+   "Nijeriya",
+   "Naíjíríà"
+  ],
+  "borders": [
+   "BEN",
+   "CMR",
+   "NER",
+   "TCD"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "NIC": {
+  "name": "Nicaragua",
+  "flag": "🇳🇮",
+  "ccn3": "558",
+  "latlng": [
+   13,
+   -85
+  ],
+  "alt": [
+   "Republic of Nicaragua",
+   "NI",
+   "República de Nicaragua"
+  ],
+  "borders": [
+   "CRI",
+   "HND"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "NLD": {
+  "name": "Netherlands",
+  "flag": "🇳🇱",
+  "ccn3": "528",
+  "latlng": [
+   52.5,
+   5.75
+  ],
+  "alt": [
+   "Kingdom of the Netherlands",
+   "NL",
+   "Holland",
+   "Nederland",
+   "The Netherlands"
+  ],
+  "borders": [
+   "BEL",
+   "DEU"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "NOR": {
+  "name": "Norway",
+  "flag": "🇳🇴",
+  "ccn3": "578",
+  "latlng": [
+   62,
+   10
+  ],
+  "alt": [
+   "Kingdom of Norway",
+   "NO",
+   "Norge",
+   "Noreg",
+   "Kongeriket Norge",
+   "Kongeriket Noreg"
+  ],
+  "borders": [
+   "FIN",
+   "RUS",
+   "SWE"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "NPL": {
+  "name": "Nepal",
+  "flag": "🇳🇵",
+  "ccn3": "524",
+  "latlng": [
+   28,
+   84
+  ],
+  "alt": [
+   "Federal Democratic Republic of Nepal",
+   "NP",
+   "Loktāntrik Ganatantra Nepāl"
+  ],
+  "borders": [
+   "CHN",
+   "IND"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "NZL": {
+  "name": "New Zealand",
+  "flag": "🇳🇿",
+  "ccn3": "554",
+  "latlng": [
+   -41,
+   174
+  ],
+  "alt": [
+   "NZ",
+   "Aotearoa"
+  ],
+  "borders": [],
+  "sea": [],
+  "component": 2
+ },
+ "OMN": {
+  "name": "Oman",
+  "flag": "🇴🇲",
+  "ccn3": "512",
+  "latlng": [
+   21,
+   57
+  ],
+  "alt": [
+   "Sultanate of Oman",
+   "OM",
+   "Salṭanat ʻUmān"
+  ],
+  "borders": [
+   "ARE",
+   "SAU",
+   "YEM"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "PAK": {
+  "name": "Pakistan",
+  "flag": "🇵🇰",
+  "ccn3": "586",
+  "latlng": [
+   30,
+   70
+  ],
+  "alt": [
+   "Islamic Republic of Pakistan",
+   "PK",
+   "Pākistān",
+   "Islāmī Jumhūriya'eh Pākistān"
+  ],
+  "borders": [
+   "AFG",
+   "CHN",
+   "IND",
+   "IRN"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "PAN": {
+  "name": "Panama",
+  "flag": "🇵🇦",
+  "ccn3": "591",
+  "latlng": [
+   9,
+   -80
+  ],
+  "alt": [
+   "Republic of Panama",
+   "PA",
+   "República de Panamá"
+  ],
+  "borders": [
+   "COL",
+   "CRI"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "PER": {
+  "name": "Peru",
+  "flag": "🇵🇪",
+  "ccn3": "604",
+  "latlng": [
+   -10,
+   -76
+  ],
+  "alt": [
+   "Republic of Peru",
+   "PE",
+   "República del Perú"
+  ],
+  "borders": [
+   "BOL",
+   "BRA",
+   "CHL",
+   "COL",
+   "ECU"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "PHL": {
+  "name": "Philippines",
+  "flag": "🇵🇭",
+  "ccn3": "608",
+  "latlng": [
+   13,
+   122
+  ],
+  "alt": [
+   "Republic of the Philippines",
+   "PH",
+   "Repúblika ng Pilipinas"
+  ],
+  "borders": [],
+  "sea": [
+   "MYS"
+  ],
+  "component": 0
+ },
+ "PNG": {
+  "name": "Papua New Guinea",
+  "flag": "🇵🇬",
+  "ccn3": "598",
+  "latlng": [
+   -6,
+   147
+  ],
+  "alt": [
+   "Independent State of Papua New Guinea",
+   "PG",
+   "Independen Stet bilong Papua Niugini"
+  ],
+  "borders": [
+   "IDN"
+  ],
+  "sea": [
+   "AUS"
+  ],
+  "component": 0
+ },
+ "POL": {
+  "name": "Poland",
+  "flag": "🇵🇱",
+  "ccn3": "616",
+  "latlng": [
+   52,
+   20
+  ],
+  "alt": [
+   "Republic of Poland",
+   "PL",
+   "Rzeczpospolita Polska"
+  ],
+  "borders": [
+   "BLR",
+   "CZE",
+   "DEU",
+   "LTU",
+   "RUS",
+   "SVK",
+   "UKR"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "PRK": {
+  "name": "North Korea",
+  "flag": "🇰🇵",
+  "ccn3": "408",
+  "latlng": [
+   40,
+   127
+  ],
+  "alt": [
+   "Democratic People's Republic of Korea",
+   "KP",
+   "DPRK",
+   "조선민주주의인민공화국",
+   "Chosŏn Minjujuŭi Inmin Konghwaguk",
+   "Korea, Democratic People's Republic of",
+   "북한",
+   "북조선"
+  ],
+  "borders": [
+   "CHN",
+   "KOR",
+   "RUS"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "PRT": {
+  "name": "Portugal",
+  "flag": "🇵🇹",
+  "ccn3": "620",
+  "latlng": [
+   39.5,
+   -8
+  ],
+  "alt": [
+   "Portuguese Republic",
+   "PT",
+   "Portuguesa",
+   "República Portuguesa"
+  ],
+  "borders": [
+   "ESP"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "PRY": {
+  "name": "Paraguay",
+  "flag": "🇵🇾",
+  "ccn3": "600",
+  "latlng": [
+   -23,
+   -58
+  ],
+  "alt": [
+   "Republic of Paraguay",
+   "PY",
+   "República del Paraguay",
+   "Tetã Paraguái"
+  ],
+  "borders": [
+   "ARG",
+   "BOL",
+   "BRA"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "QAT": {
+  "name": "Qatar",
+  "flag": "🇶🇦",
+  "ccn3": "634",
+  "latlng": [
+   25.5,
+   51.25
+  ],
+  "alt": [
+   "State of Qatar",
+   "QA",
+   "Dawlat Qaṭar"
+  ],
+  "borders": [
+   "SAU"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "ROU": {
+  "name": "Romania",
+  "flag": "🇷🇴",
+  "ccn3": "642",
+  "latlng": [
+   46,
+   25
+  ],
+  "alt": [
+   "RO",
+   "Rumania",
+   "Roumania",
+   "România"
+  ],
+  "borders": [
+   "BGR",
+   "HUN",
+   "MDA",
+   "SRB",
+   "UKR"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "RUS": {
+  "name": "Russia",
+  "flag": "🇷🇺",
+  "ccn3": "643",
+  "latlng": [
+   60,
+   100
+  ],
+  "alt": [
+   "Russian Federation",
+   "RU",
+   "Российская Федерация"
+  ],
+  "borders": [
+   "AZE",
+   "BLR",
+   "CHN",
+   "EST",
+   "FIN",
+   "GEO",
+   "KAZ",
+   "LTU",
+   "LVA",
+   "MNG",
+   "NOR",
+   "POL",
+   "PRK",
+   "UKR"
+  ],
+  "sea": [
+   "USA"
+  ],
+  "component": 0
+ },
+ "RWA": {
+  "name": "Rwanda",
+  "flag": "🇷🇼",
+  "ccn3": "646",
+  "latlng": [
+   -2,
+   30
+  ],
+  "alt": [
+   "Republic of Rwanda",
+   "RW",
+   "Repubulika y'u Rwanda",
+   "République du Rwanda"
+  ],
+  "borders": [
+   "BDI",
+   "COD",
+   "TZA",
+   "UGA"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "SAU": {
+  "name": "Saudi Arabia",
+  "flag": "🇸🇦",
+  "ccn3": "682",
+  "latlng": [
+   25,
+   45
+  ],
+  "alt": [
+   "Kingdom of Saudi Arabia",
+   "Saudi",
+   "SA",
+   "Al-Mamlakah al-‘Arabiyyah as-Su‘ūdiyyah"
+  ],
+  "borders": [
+   "ARE",
+   "IRQ",
+   "JOR",
+   "KWT",
+   "OMN",
+   "QAT",
+   "YEM"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "SDN": {
+  "name": "Sudan",
+  "flag": "🇸🇩",
+  "ccn3": "729",
+  "latlng": [
+   15,
+   30
+  ],
+  "alt": [
+   "Republic of the Sudan",
+   "SD",
+   "Jumhūrīyat as-Sūdān"
+  ],
+  "borders": [
+   "CAF",
+   "EGY",
+   "ERI",
+   "ETH",
+   "LBY",
+   "SSD",
+   "TCD"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "SEN": {
+  "name": "Senegal",
+  "flag": "🇸🇳",
+  "ccn3": "686",
+  "latlng": [
+   14,
+   -14
+  ],
+  "alt": [
+   "Republic of Senegal",
+   "SN",
+   "République du Sénégal"
+  ],
+  "borders": [
+   "GIN",
+   "GMB",
+   "GNB",
+   "MLI",
+   "MRT"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "SLB": {
+  "name": "Solomon Islands",
+  "flag": "🇸🇧",
+  "ccn3": "090",
+  "latlng": [
+   -8,
+   159
+  ],
+  "alt": [
+   "SB"
+  ],
+  "borders": [],
+  "sea": [],
+  "component": 3
+ },
+ "SLE": {
+  "name": "Sierra Leone",
+  "flag": "🇸🇱",
+  "ccn3": "694",
+  "latlng": [
+   8.5,
+   -11.5
+  ],
+  "alt": [
+   "Republic of Sierra Leone",
+   "SL"
+  ],
+  "borders": [
+   "GIN",
+   "LBR"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "SLV": {
+  "name": "El Salvador",
+  "flag": "🇸🇻",
+  "ccn3": "222",
+  "latlng": [
+   13.83333333,
+   -88.91666666
+  ],
+  "alt": [
+   "Republic of El Salvador",
+   "SV",
+   "República de El Salvador"
+  ],
+  "borders": [
+   "GTM",
+   "HND"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "SOM": {
+  "name": "Somalia",
+  "flag": "🇸🇴",
+  "ccn3": "706",
+  "latlng": [
+   10,
+   49
+  ],
+  "alt": [
+   "Federal Republic of Somalia",
+   "SO",
+   "aṣ-Ṣūmāl",
+   "Jamhuuriyadda Federaalka Soomaaliya",
+   "Jumhūriyyat aṣ-Ṣūmāl al-Fiderāliyya"
+  ],
+  "borders": [
+   "DJI",
+   "ETH",
+   "KEN"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "SRB": {
+  "name": "Serbia",
+  "flag": "🇷🇸",
+  "ccn3": "688",
+  "latlng": [
+   44,
+   21
+  ],
+  "alt": [
+   "Republic of Serbia",
+   "RS",
+   "Srbija",
+   "Republika Srbija",
+   "Србија",
+   "Република Србија"
+  ],
+  "borders": [
+   "BGR",
+   "BIH",
+   "HRV",
+   "HUN",
+   "MKD",
+   "MNE",
+   "ROU"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "SSD": {
+  "name": "South Sudan",
+  "flag": "🇸🇸",
+  "ccn3": "728",
+  "latlng": [
+   7,
+   30
+  ],
+  "alt": [
+   "Republic of South Sudan",
+   "SS"
+  ],
+  "borders": [
+   "CAF",
+   "COD",
+   "ETH",
+   "KEN",
+   "SDN",
+   "UGA"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "SUR": {
+  "name": "Suriname",
+  "flag": "🇸🇷",
+  "ccn3": "740",
+  "latlng": [
+   4,
+   -56
+  ],
+  "alt": [
+   "Republic of Suriname",
+   "SR",
+   "Sarnam",
+   "Sranangron",
+   "Republiek Suriname"
+  ],
+  "borders": [
+   "BRA",
+   "GUY"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "SVK": {
+  "name": "Slovakia",
+  "flag": "🇸🇰",
+  "ccn3": "703",
+  "latlng": [
+   48.66666666,
+   19.5
+  ],
+  "alt": [
+   "Slovak Republic",
+   "SK",
+   "Slovenská republika"
+  ],
+  "borders": [
+   "AUT",
+   "CZE",
+   "HUN",
+   "POL",
+   "UKR"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "SVN": {
+  "name": "Slovenia",
+  "flag": "🇸🇮",
+  "ccn3": "705",
+  "latlng": [
+   46.11666666,
+   14.81666666
+  ],
+  "alt": [
+   "Republic of Slovenia",
+   "SI",
+   "Republika Slovenija"
+  ],
+  "borders": [
+   "AUT",
+   "HRV",
+   "HUN",
+   "ITA"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "SWE": {
+  "name": "Sweden",
+  "flag": "🇸🇪",
+  "ccn3": "752",
+  "latlng": [
+   62,
+   15
+  ],
+  "alt": [
+   "Kingdom of Sweden",
+   "SE",
+   "Konungariket Sverige"
+  ],
+  "borders": [
+   "FIN",
+   "NOR"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "SWZ": {
+  "name": "Eswatini",
+  "flag": "🇸🇿",
+  "ccn3": "748",
+  "latlng": [
+   -26.5,
+   31.5
+  ],
+  "alt": [
+   "Kingdom of Eswatini",
+   "SZ",
+   "Swaziland",
+   "weSwatini",
+   "Swatini",
+   "Ngwane",
+   "Umbuso weSwatini"
+  ],
+  "borders": [
+   "MOZ",
+   "ZAF"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "SYR": {
+  "name": "Syria",
+  "flag": "🇸🇾",
+  "ccn3": "760",
+  "latlng": [
+   35,
+   38
+  ],
+  "alt": [
+   "Syrian Arab Republic",
+   "SY",
+   "Al-Jumhūrīyah Al-ʻArabīyah As-Sūrīyah"
+  ],
+  "borders": [
+   "IRQ",
+   "ISR",
+   "JOR",
+   "LBN",
+   "TUR"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "TCD": {
+  "name": "Chad",
+  "flag": "🇹🇩",
+  "ccn3": "148",
+  "latlng": [
+   15,
+   19
+  ],
+  "alt": [
+   "Republic of Chad",
+   "TD",
+   "Tchad",
+   "République du Tchad"
+  ],
+  "borders": [
+   "CAF",
+   "CMR",
+   "LBY",
+   "NER",
+   "NGA",
+   "SDN"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "TGO": {
+  "name": "Togo",
+  "flag": "🇹🇬",
+  "ccn3": "768",
+  "latlng": [
+   8,
+   1.16666666
+  ],
+  "alt": [
+   "Togolese Republic",
+   "TG",
+   "Togolese",
+   "République Togolaise"
+  ],
+  "borders": [
+   "BEN",
+   "BFA",
+   "GHA"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "THA": {
+  "name": "Thailand",
+  "flag": "🇹🇭",
+  "ccn3": "764",
+  "latlng": [
+   15,
+   100
+  ],
+  "alt": [
+   "Kingdom of Thailand",
+   "TH",
+   "Prathet",
+   "Thai",
+   "ราชอาณาจักรไทย",
+   "Ratcha Anachak Thai"
+  ],
+  "borders": [
+   "KHM",
+   "LAO",
+   "MMR",
+   "MYS"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "TJK": {
+  "name": "Tajikistan",
+  "flag": "🇹🇯",
+  "ccn3": "762",
+  "latlng": [
+   39,
+   71
+  ],
+  "alt": [
+   "Republic of Tajikistan",
+   "TJ",
+   "Toçikiston",
+   "Ҷумҳурии Тоҷикистон",
+   "Çumhuriyi Toçikiston"
+  ],
+  "borders": [
+   "AFG",
+   "CHN",
+   "KGZ",
+   "UZB"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "TKM": {
+  "name": "Turkmenistan",
+  "flag": "🇹🇲",
+  "ccn3": "795",
+  "latlng": [
+   40,
+   60
+  ],
+  "alt": [
+   "TM"
+  ],
+  "borders": [
+   "AFG",
+   "IRN",
+   "KAZ",
+   "UZB"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "TLS": {
+  "name": "Timor-Leste",
+  "flag": "🇹🇱",
+  "ccn3": "626",
+  "latlng": [
+   -8.83333333,
+   125.91666666
+  ],
+  "alt": [
+   "Democratic Republic of Timor-Leste",
+   "TL",
+   "East Timor",
+   "Timor",
+   "República Democrática de Timor-Leste",
+   "Repúblika Demokrátika Timór-Leste",
+   "Timór Lorosa'e",
+   "Timor Lorosae"
+  ],
+  "borders": [
+   "IDN"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "TTO": {
+  "name": "Trinidad and Tobago",
+  "flag": "🇹🇹",
+  "ccn3": "780",
+  "latlng": [
+   11,
+   -61
+  ],
+  "alt": [
+   "Republic of Trinidad and Tobago",
+   "TT"
+  ],
+  "borders": [],
+  "sea": [
+   "VEN"
+  ],
+  "component": 0
+ },
+ "TUN": {
+  "name": "Tunisia",
+  "flag": "🇹🇳",
+  "ccn3": "788",
+  "latlng": [
+   34,
+   9
+  ],
+  "alt": [
+   "Tunisian Republic",
+   "TN",
+   "Republic of Tunisia",
+   "al-Jumhūriyyah at-Tūnisiyyah"
+  ],
+  "borders": [
+   "DZA",
+   "LBY"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "TUR": {
+  "name": "Türkiye",
+  "flag": "🇹🇷",
+  "ccn3": "792",
+  "latlng": [
+   39,
+   35
+  ],
+  "alt": [
+   "Republic of Türkiye",
+   "TR",
+   "Turkiye",
+   "Republic of Turkey",
+   "Türkiye Cumhuriyeti"
+  ],
+  "borders": [
+   "ARM",
+   "AZE",
+   "BGR",
+   "GEO",
+   "GRC",
+   "IRN",
+   "IRQ",
+   "SYR"
+  ],
+  "sea": [
+   "CYP"
+  ],
+  "component": 0
+ },
+ "TZA": {
+  "name": "Tanzania",
+  "flag": "🇹🇿",
+  "ccn3": "834",
+  "latlng": [
+   -6,
+   35
+  ],
+  "alt": [
+   "United Republic of Tanzania",
+   "TZ",
+   "Tanzania, United Republic of",
+   "Jamhuri ya Muungano wa Tanzania"
+  ],
+  "borders": [
+   "BDI",
+   "COD",
+   "KEN",
+   "MOZ",
+   "MWI",
+   "RWA",
+   "UGA",
+   "ZMB"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "UGA": {
+  "name": "Uganda",
+  "flag": "🇺🇬",
+  "ccn3": "800",
+  "latlng": [
+   1,
+   32
+  ],
+  "alt": [
+   "Republic of Uganda",
+   "UG",
+   "Jamhuri ya Uganda"
+  ],
+  "borders": [
+   "COD",
+   "KEN",
+   "RWA",
+   "SSD",
+   "TZA"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "UKR": {
+  "name": "Ukraine",
+  "flag": "🇺🇦",
+  "ccn3": "804",
+  "latlng": [
+   49,
+   32
+  ],
+  "alt": [
+   "UA",
+   "Ukrayina"
+  ],
+  "borders": [
+   "BLR",
+   "HUN",
+   "MDA",
+   "POL",
+   "ROU",
+   "RUS",
+   "SVK"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "URY": {
+  "name": "Uruguay",
+  "flag": "🇺🇾",
+  "ccn3": "858",
+  "latlng": [
+   -33,
+   -56
+  ],
+  "alt": [
+   "Oriental Republic of Uruguay",
+   "UY",
+   "República Oriental del Uruguay"
+  ],
+  "borders": [
+   "ARG",
+   "BRA"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "USA": {
+  "name": "United States",
+  "flag": "🇺🇸",
+  "ccn3": "840",
+  "latlng": [
+   38,
+   -97
+  ],
+  "alt": [
+   "United States of America",
+   "US",
+   "USA"
+  ],
+  "borders": [
+   "CAN",
+   "MEX"
+  ],
+  "sea": [
+   "BHS",
+   "RUS"
+  ],
+  "component": 0
+ },
+ "UZB": {
+  "name": "Uzbekistan",
+  "flag": "🇺🇿",
+  "ccn3": "860",
+  "latlng": [
+   41,
+   64
+  ],
+  "alt": [
+   "Republic of Uzbekistan",
+   "UZ",
+   "O‘zbekiston Respublikasi",
+   "Ўзбекистон Республикаси"
+  ],
+  "borders": [
+   "AFG",
+   "KAZ",
+   "KGZ",
+   "TJK",
+   "TKM"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "VEN": {
+  "name": "Venezuela",
+  "flag": "🇻🇪",
+  "ccn3": "862",
+  "latlng": [
+   8,
+   -66
+  ],
+  "alt": [
+   "Bolivarian Republic of Venezuela",
+   "VE",
+   "Venezuela, Bolivarian Republic of",
+   "República Bolivariana de Venezuela"
+  ],
+  "borders": [
+   "BRA",
+   "COL",
+   "GUY"
+  ],
+  "sea": [
+   "TTO"
+  ],
+  "component": 0
+ },
+ "VNM": {
+  "name": "Vietnam",
+  "flag": "🇻🇳",
+  "ccn3": "704",
+  "latlng": [
+   16.16666666,
+   107.83333333
+  ],
+  "alt": [
+   "Socialist Republic of Vietnam",
+   "VN",
+   "Cộng hòa Xã hội chủ nghĩa Việt Nam",
+   "Viet Nam"
+  ],
+  "borders": [
+   "CHN",
+   "KHM",
+   "LAO"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "VUT": {
+  "name": "Vanuatu",
+  "flag": "🇻🇺",
+  "ccn3": "548",
+  "latlng": [
+   -16,
+   167
+  ],
+  "alt": [
+   "Republic of Vanuatu",
+   "VU",
+   "Ripablik blong Vanuatu",
+   "République de Vanuatu"
+  ],
+  "borders": [],
+  "sea": [],
+  "component": 4
+ },
+ "YEM": {
+  "name": "Yemen",
+  "flag": "🇾🇪",
+  "ccn3": "887",
+  "latlng": [
+   15,
+   48
+  ],
+  "alt": [
+   "Republic of Yemen",
+   "YE",
+   "Yemeni Republic",
+   "al-Jumhūriyyah al-Yamaniyyah"
+  ],
+  "borders": [
+   "OMN",
+   "SAU"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "ZAF": {
+  "name": "South Africa",
+  "flag": "🇿🇦",
+  "ccn3": "710",
+  "latlng": [
+   -29,
+   24
+  ],
+  "alt": [
+   "Republic of South Africa",
+   "ZA",
+   "RSA",
+   "Suid-Afrika"
+  ],
+  "borders": [
+   "BWA",
+   "LSO",
+   "MOZ",
+   "NAM",
+   "SWZ",
+   "ZWE"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "ZMB": {
+  "name": "Zambia",
+  "flag": "🇿🇲",
+  "ccn3": "894",
+  "latlng": [
+   -15,
+   30
+  ],
+  "alt": [
+   "Republic of Zambia",
+   "ZM"
+  ],
+  "borders": [
+   "AGO",
+   "BWA",
+   "COD",
+   "MOZ",
+   "MWI",
+   "NAM",
+   "TZA",
+   "ZWE"
+  ],
+  "sea": [],
+  "component": 0
+ },
+ "ZWE": {
+  "name": "Zimbabwe",
+  "flag": "🇿🇼",
+  "ccn3": "716",
+  "latlng": [
+   -20,
+   30
+  ],
+  "alt": [
+   "Republic of Zimbabwe",
+   "ZW"
+  ],
+  "borders": [
+   "BWA",
+   "MOZ",
+   "ZAF",
+   "ZMB"
+  ],
+  "sea": [],
+  "component": 0
+ }
+}
