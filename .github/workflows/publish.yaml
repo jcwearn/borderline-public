@@ -8,7 +8,7 @@ on:
 
 jobs:
   publish:
-    uses: jcwearn/workflows/.github/workflows/public-sync.yaml@f86d82f0e2a8cd5d73a15bfafdfe613e9526a3a4 # main
+    uses: jcwearn/workflows/.github/workflows/public-sync.yaml@d05307571ec735cdd30d60377db0fff881bb78e2 # main
     with:
       target-repo: jcwearn/borderline-public
       readme-override: .github/public-README.md
@@ -16,7 +16,7 @@ jobs:
       # github-actions[bot]; the committer is what GitHub verifies against, so
       # this must be an email tied to the account owning PUBLIC_SYNC_SIGNING_KEY.
       signer-name: Jackson Wearn
-      signer-email: 2472105+jcwearn@users.noreply.github.com
+      signer-email: jcwearn@users.noreply.github.com
     secrets:
       DEPLOY_KEY: ${{ secrets.PUBLIC_SYNC_DEPLOY_KEY }}
       SIGNING_KEY: ${{ secrets.PUBLIC_SYNC_SIGNING_KEY }}
