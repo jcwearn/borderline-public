@@ -538,8 +538,10 @@ export default function GlobeView({
       .filter((l) => angleBetween(view.lat, view.lng, l.lat, l.lng) < limit)
       .map((l) => {
         const { x, y } = instance.getScreenCoords(l.lat, l.lng, LABEL_ALTITUDE)
-        const width = labelWidth(l.name, l.role === 'required')
-        return { code: l.code, x, y, width, height: LABEL_HEIGHT }
+        // `labelW` not `width`: a `width` from the ruler measurement is in
+        // scope here (see above), and shadowing it hid that from readers.
+        const labelW = labelWidth(l.name, l.role === 'required')
+        return { code: l.code, x, y, width: labelW, height: LABEL_HEIGHT }
       })
 
     const fits = fitLabels(boxes, LABEL_GAP)
@@ -659,20 +661,21 @@ export default function GlobeView({
       return
     }
     const started = performance.now()
-    let frame = 0
+    // `rafId` not `frame`: `frame` is a useCallback defined above.
+    let rafId = 0
     const tick = () => {
       const done = Math.min(1, (performance.now() - started) / HOLD_MS)
       setProgress(done)
       if (done < 1) {
-        frame = requestAnimationFrame(tick)
+        rafId = requestAnimationFrame(tick)
         return
       }
       consumed.current = true
       setHold(null)
       onSelect?.(hold.code)
     }
-    frame = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(frame)
+    rafId = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(rafId)
   }, [hold, onSelect])
 
   const handleClick = useCallback(

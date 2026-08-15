@@ -146,9 +146,10 @@ function load(key: string): void {
   )
 }
 
-function whenIdle(load: () => void): void {
-  if (typeof requestIdleCallback === 'function') requestIdleCallback(load, { timeout: 3000 })
-  else setTimeout(load, 1500)
+// `task` not `load`: `load` is a function declared above in this module.
+function whenIdle(task: () => void): void {
+  if (typeof requestIdleCallback === 'function') requestIdleCallback(task, { timeout: 3000 })
+  else setTimeout(task, 1500)
 }
 
 /**

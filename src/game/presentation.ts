@@ -145,12 +145,14 @@ export type RailView = {
 }
 
 /**
- * Placed countries reachable from `origin` without passing through any other
+ * Placed countries reachable from `start` without passing through any other
  * anchor, ordered outward. The two runs either side of a gap.
  */
 function runFrom(
+  // Named `start` rather than `origin` because `origin` is an exported function
+  // in this module, and shadowing it here hid that from every reader.
   state: GameState,
-  origin: CountryCode,
+  start: CountryCode,
   anchors: readonly CountryCode[],
   claimed: ReadonlySet<CountryCode>,
 ): CountryCode[] {
@@ -160,8 +162,8 @@ function runFrom(
   // Already spoken for by an earlier stretch. Without this a country between
   // two anchors is reachable from both and is drawn twice — Germany borders
   // France and Poland, so it would sit on either side of the same gap.
-  const seen = new Set<CountryCode>([origin, ...anchors, ...claimed])
-  let frontier = [origin]
+  const seen = new Set<CountryCode>([start, ...anchors, ...claimed])
+  let frontier = [start]
 
   while (frontier.length > 0) {
     const next: CountryCode[] = []

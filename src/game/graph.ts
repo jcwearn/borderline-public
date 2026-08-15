@@ -390,7 +390,8 @@ export function searchVia(
   arc(enter(node.get(to)!), sink, 1, 0)
 
   const source = leave(node.get(via)!)
-  let cost = 0
+  // `total` not `cost`: `cost` is an exported function in this module.
+  let total = 0
   for (let unit = 0; unit < 2; unit++) {
     // Bellman–Ford rather than Dijkstra: a residual arc carries the negative of
     // the weight it undoes, and Dijkstra cannot be told that.
@@ -419,7 +420,7 @@ export function searchVia(
     // the *second* that asks whether there is another way round, and a waypoint
     // that fails here is one the round could only ever have doubled back out of.
     if (best[sink] >= FAR) return null
-    cost += best[sink]
+    total += best[sink]
     for (let at = sink; at !== source; at = target[cameBy[at] ^ 1]) {
       spare[cameBy[at]] -= 1
       spare[cameBy[at] ^ 1] += 1
@@ -457,7 +458,7 @@ export function searchVia(
   const inward = first[first.length - 1] === from ? first : second
   const outward = inward === first ? second : first
   if (inward[inward.length - 1] !== from || outward[outward.length - 1] !== to) return null
-  return { cost, path: [...inward].reverse().concat(outward.slice(1)) }
+  return { cost: total, path: [...inward].reverse().concat(outward.slice(1)) }
 }
 
 /** What the cheapest route through `via` costs, or `null` if there is none. */

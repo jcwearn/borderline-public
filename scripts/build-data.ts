@@ -210,7 +210,9 @@ function suurballe(
 ): number | undefined {
   const SINK = '.'
   const arcs = new Map<string, Map<string, number>>()
-  const join = (from: string, to: string, cost: number) => {
+  // `arc` not `join`: `join` is imported from node:path at the top of this
+  // file and used throughout for real paths.
+  const arc = (from: string, to: string, cost: number) => {
     if (!arcs.has(from)) arcs.set(from, new Map())
     arcs.get(from)!.set(to, cost)
   }
@@ -218,14 +220,14 @@ function suurballe(
   for (const code of Object.keys(graph)) {
     if (shut?.has(code)) continue
     // No unit passes *through* a terminal; the route starts, ends or turns there.
-    if (!terminals.has(code)) join(`>${code}`, `<${code}`, priced?.has(code) ? ROUGH_COST - 1 : 0)
+    if (!terminals.has(code)) arc(`>${code}`, `<${code}`, priced?.has(code) ? ROUGH_COST - 1 : 0)
     for (const other of links[code]) {
       if (shut?.has(other)) continue
-      join(`<${code}`, `>${other}`, linkCost(code, other))
+      arc(`<${code}`, `>${other}`, linkCost(code, other))
     }
   }
-  join(`>${start}`, SINK, 0)
-  join(`>${end}`, SINK, 0)
+  arc(`>${start}`, SINK, 0)
+  arc(`>${end}`, SINK, 0)
 
   const source = `<${via}`
   /** Dijkstra over an arc map. Returns costs and how each node was reached. */
@@ -538,12 +540,14 @@ assert(
 const regions: Region[] = JSON.parse(readFileSync(join(ROOT, 'data/regions.json'), 'utf8'))
 
 const regionNames = new Set<string>()
-for (const { name, countries, basis } of regions) {
+// `inRegion` not `countries`: the module-level `countries` list is in scope
+// here, and shadowing it made this loop read as if it filtered that.
+for (const { name, countries: inRegion, basis } of regions) {
   assert(!regionNames.has(name), `region "${name}" is listed twice`)
   regionNames.add(name)
-  assert(countries.length >= 2, `region "${name}" needs more than one country to be a region`)
-  assert(new Set(countries).size === countries.length, `region "${name}" names a country twice`)
-  for (const code of countries) {
+  assert(inRegion.length >= 2, `region "${name}" needs more than one country to be a region`)
+  assert(new Set(inRegion).size === inRegion.length, `region "${name}" names a country twice`)
+  for (const code of inRegion) {
     assert(codes.has(code), `region "${name}" names ${code}, which is not playable`)
   }
   // The justification is the inclusion rule, as it is for a crossing: a region
@@ -553,9 +557,9 @@ for (const { name, countries, basis } of regions) {
   // Connected *within itself*, over land or water. A region in two pieces is
   // two regions, and shutting one would grey two unrelated parts of the globe
   // under a single name — which is the one thing naming them was for.
-  const inside = new Set(countries)
-  const seen = new Set([countries[0]])
-  const queue = [countries[0]]
+  const inside = new Set(inRegion)
+  const seen = new Set([inRegion[0]])
+  const queue = [inRegion[0]]
   for (let head = 0; head < queue.length; head++) {
     for (const link of links[queue[head]]) {
       if (inside.has(link) && !seen.has(link)) {
@@ -565,8 +569,8 @@ for (const { name, countries, basis } of regions) {
     }
   }
   assert(
-    seen.size === countries.length,
-    `region "${name}" is not connected — ${countries.filter((c) => !seen.has(c)).join(', ')} hangs off nothing`,
+    seen.size === inRegion.length,
+    `region "${name}" is not connected — ${inRegion.filter((c) => !seen.has(c)).join(', ')} hangs off nothing`,
   )
 }
 
@@ -692,11 +696,12 @@ const TABLES = new Map<string, Int16Array>()
 
 /** The table for an arrangement, built once and kept. */
 function matrixFor(closed?: ReadonlySet<string>, rough?: ReadonlySet<string>): Int16Array {
-  const key = `${[...(closed ?? [])].sort().join(',')}|${[...(rough ?? [])].sort().join(',')}`
-  let table = TABLES.get(key)
+  // `cacheKey` not `key`: `key(a, b)` is a function declared above.
+  const cacheKey = `${[...(closed ?? [])].sort().join(',')}|${[...(rough ?? [])].sort().join(',')}`
+  let table = TABLES.get(cacheKey)
   if (!table) {
     table = allPairs(closed, rough)
-    TABLES.set(key, table)
+    TABLES.set(cacheKey, table)
   }
   return table
 }
@@ -1463,16 +1468,17 @@ for (let from = 0; from < N; from++) {
   let kept = 0
   let alive = ordered.length
   for (let cap = 1; kept < FAIRWAY_POOL && alive > 0 && cap <= FAIRWAY_TRUNK_CAP; cap++) {
-    for (let at = 0; at < ordered.length && kept < FAIRWAY_POOL; at++) {
-      if (taken[at] || dead[at]) continue
-      if (ordered[at].fairway.some((code) => (seen.get(code) ?? 0) >= cap)) continue
-      for (const code of ordered[at].fairway) seen.set(code, (seen.get(code) ?? 0) + 1)
-      taken[at] = 1
+    // `idx` not `at`: `at(table, from, to)` is a helper declared above.
+    for (let idx = 0; idx < ordered.length && kept < FAIRWAY_POOL; idx++) {
+      if (taken[idx] || dead[idx]) continue
+      if (ordered[idx].fairway.some((code) => (seen.get(code) ?? 0) >= cap)) continue
+      for (const code of ordered[idx].fairway) seen.set(code, (seen.get(code) ?? 0) + 1)
+      taken[idx] = 1
       kept++
       alive--
       for (let other = 0; other < ordered.length; other++) {
-        if (taken[other] || dead[other] || other === at) continue
-        if (tooAlike(at, other)) {
+        if (taken[other] || dead[other] || other === idx) continue
+        if (tooAlike(idx, other)) {
           dead[other] = 1
           alive--
         }
@@ -1481,8 +1487,9 @@ for (let from = 0; from < N; from++) {
   }
   // Filed in the deterministic walk order rather than the order taken, so the
   // committed file cannot depend on the fill's internal state.
-  for (let at = 0; at < ordered.length; at++) {
-    if (taken[at]) file('fairway', ordered[at].hole)
+  // `idx` not `at`, as above.
+  for (let idx = 0; idx < ordered.length; idx++) {
+    if (taken[idx]) file('fairway', ordered[idx].hole)
   }
 }
 
@@ -1627,7 +1634,7 @@ writeFileSync(join(ROOT, 'src/data/crossings.json'), JSON.stringify(crossings, n
 writeFileSync(
   join(ROOT, 'src/data/regions.json'),
   JSON.stringify(
-    regions.map(({ name, countries }) => ({ name, countries })),
+    regions.map(({ name, countries: inRegion }) => ({ name, countries: inRegion })),
     null,
     1,
   ) + '\n',

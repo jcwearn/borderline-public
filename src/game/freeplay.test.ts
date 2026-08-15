@@ -498,22 +498,22 @@ describe('one waypoint, and only one', () => {
   })
 
   it('refuses to build a round sent through two countries', () => {
-    const built = buildPuzzle({ start: 'FRA', end: 'POL', required: ['HUN', 'ITA'] })
-    expect('error' in built && built.error).toMatch(/only be sent through one country/)
+    const result = buildPuzzle({ start: 'FRA', end: 'POL', required: ['HUN', 'ITA'] })
+    expect('error' in result && result.error).toMatch(/only be sent through one country/)
   })
 
   it('refuses a waypoint with only one way in and out', () => {
     // Portugal holds a single link, so the way in is also the only way out.
-    const built = buildPuzzle({ start: 'FRA', end: 'POL', required: ['PRT'] })
-    expect('error' in built && built.error).toMatch(/without doubling back/)
+    const result = buildPuzzle({ start: 'FRA', end: 'POL', required: ['PRT'] })
+    expect('error' in result && result.error).toMatch(/without doubling back/)
   })
 
   it('prices a waypoint as the route through it, not the board that reaches it', () => {
     // France to Poland is Germany alone. Sent through Hungary it is France,
     // Germany, Austria, Hungary, Slovakia, Poland — four countries, not one.
-    const built = buildPuzzle({ start: 'FRA', end: 'POL', required: ['HUN'] })
-    if ('error' in built) throw new Error(built.error)
-    expect(built.puzzle.best).toBe(4)
+    const result = buildPuzzle({ start: 'FRA', end: 'POL', required: ['HUN'] })
+    if ('error' in result) throw new Error(result.error)
+    expect(result.puzzle.best).toBe(4)
   })
 })
 

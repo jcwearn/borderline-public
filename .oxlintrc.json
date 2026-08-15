@@ -1,8 +1,52 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
+
+  // oxlint's default is `correctness` at WARN, and warnings do not affect the
+  // exit code -- so before this block, `npm run lint` was green no matter what
+  // it printed. cf-worker-email shipped an unused catch binding that way.
+  //
+  // Everything here is `error` or `off`, never `warn`. A rule nobody will act
+  // on is noise, and noise is what hid that finding.
+  //
+  // Not enabled: `pedantic` (its top rules here are no-inline-comments and
+  // max-lines-per-function, which fight the house commenting style), plus
+  // `perf`, `style`, `restriction` and `nursery`.
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error"
+  },
+
+  // NOTE: `plugins` REPLACES oxlint's base set rather than adding to it, so
+  // this list silently drops `unicorn`, which is on by default. That is
+  // currently deliberate: restoring it adds 145 findings across the fleet,
+  // 93 of them unicorn(no-array-sort) wanting .toSorted() instead of .sort().
+  // That is a behavioural change to mutation semantics and belongs in its own
+  // PR, not in a change about severity.
   "plugins": ["react", "typescript", "oxc"],
+
+  "ignorePatterns": ["dist"],
+
   "rules": {
     "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+
+    // Obsolete under the modern JSX transform: these repos compile with
+    // `jsx: react-jsx`, so React need not be in scope. It is the one rule
+    // turned off rather than enforced, and it is off because it is wrong here
+    // -- 664 false positives across the fleet, 295 in a single repo.
+    "react/react-in-jsx-scope": "off",
+
+    // Promoted from `warn`. allowConstantExport keeps plain constant exports
+    // legal, so only the real cases fail: a cva() call or a React context
+    // exported beside a component, either of which breaks fast refresh.
+    "react/only-export-components": ["error", { "allowConstantExport": true }],
+
+    // A naming preference rather than a defect, and it fights two deliberate
+    // conventions here. __BUILD_ID__ is a Vite `define` (vite.config.ts:10)
+    // where the double underscore is the universal spelling, and `head_` in
+    // game/graph.ts is named that way precisely to avoid colliding with the
+    // `head` array two lines below -- renaming it would CAUSE the shadowing
+    // that no-shadow exists to catch. TypeScript has `private` for the thing
+    // this rule approximates.
+    "eslint/no-underscore-dangle": "off"
   }
 }
