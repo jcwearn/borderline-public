@@ -1,0 +1,80 @@
+name: CI extras
+
+# The half of this repo's CI that is genuinely specific to it: a browser-driven
+# layout suite, and a check that the committed generated data matches what the
+# generator produces.
+#
+# Split out of ci.yml when that became a caller of the shared Node CI workflow.
+# The alternative was adding booleans to the shared workflow, which was rejected
+# for a reason this file demonstrates: these steps used to run AFTER format,
+# lint, typecheck, test and build, serially, in one 15-minute job. As their own
+# workflow they start immediately and run alongside the shared job, so the
+# repo's wall clock is now the slower of the two rather than their sum.
+#
+# Triggers deliberately match ci.yml, so a change is gated by both or neither.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  # Distinct group from the shared workflow's, which keys on the CALLER's
+  # workflow name -- so ci.yml and this file never queue behind each other.
+  group: ${{ github.workflow }}-${{ github.ref }}
+  # Superseded pull request runs are noise. Every commit on main gets checked,
+  # because nothing else is watching it.
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+jobs:
+  extras:
+    name: Layout suite and generated-data drift
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          # Nothing here pushes; the drift check reads the tree and compares.
+          persist-credentials: false
+
+      # scripts/ imports .ts directly and runs on --experimental-strip-types,
+      # so the Node version is load-bearing. It comes from .node-version.
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version-file: '.node-version'
+          cache: 'npm'
+
+      - name: Install
+        run: npm ci
+
+      # The layout suite drives a real browser, because the bug it exists to
+      # catch is a grid track outgrowing its container and nothing without a
+      # layout engine can see one. Chrome is fetched explicitly rather than by
+      # puppeteer's postinstall, which npm's install-script policy blocks.
+      - name: Install Chrome
+        run: npx puppeteer browsers install chrome
+
+      - name: Layout test
+        run: npm run test:layout
+
+      # Deliberately build:data rather than the full build. The check below
+      # only compares generator output against what is committed, and the
+      # `tsc -b && vite build` half of `npm run build` cannot affect it -- the
+      # shared workflow runs that anyway. build:og is also not run: it writes
+      # public/og.png, a share card refreshed by hand.
+      - name: Regenerate data
+        run: npm run build:data
+
+      - name: Generated data is in sync
+        run: |
+          paths='src/data/graph.json src/data/crossings.json src/data/regions.json functions/data/pairs.json public/countries-110m.json'
+          if ! git diff --quiet -- $paths; then
+            echo "::error::Generated data is stale. Run 'npm run build:data' and commit the result."
+            git diff --stat -- $paths
+            exit 1
+          fi
