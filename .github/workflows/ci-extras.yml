@@ -36,6 +36,18 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
+    env:
+      # Stops puppeteer's postinstall downloading a Chrome build during
+      # `npm ci`. This job does need Chrome, but it fetches it explicitly in
+      # the step below, where a failure names itself instead of surfacing as a
+      # failed install.
+      #
+      # It does not disable that explicit fetch. PUPPETEER_SKIP_DOWNLOAD is
+      # consulted by the postinstall path and by `puppeteer browsers install`
+      # with NO browser argument; given an explicit `chrome`, the CLI installs
+      # unconditionally. Verified both ways before relying on it.
+      PUPPETEER_SKIP_DOWNLOAD: '1'
+
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
@@ -55,7 +67,12 @@ jobs:
       # The layout suite drives a real browser, because the bug it exists to
       # catch is a grid track outgrowing its container and nothing without a
       # layout engine can see one. Chrome is fetched explicitly rather than by
-      # puppeteer's postinstall, which npm's install-script policy blocks.
+      # puppeteer's postinstall.
+      #
+      # This used to say the postinstall "npm's install-script policy blocks".
+      # That turned out to be only usually true -- see the env block above --
+      # so the guarantee now comes from PUPPETEER_SKIP_DOWNLOAD rather than
+      # from allowScripts happening to engage.
       - name: Install Chrome
         run: npx puppeteer browsers install chrome
 

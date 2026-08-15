@@ -31,3 +31,24 @@ jobs:
     # the record of what to follow. Written as `@v1` with no trailing comment;
     # the comment belongs on a digest, where it records which tag it came from.
     uses: jcwearn/workflows/.github/workflows/node-ci.yaml@v1
+    with:
+      # puppeteer's postinstall downloads a Chrome build during `npm ci`. This
+      # job never launches a browser -- the layout suite lives in
+      # ci-extras.yml -- so that download is pure latency at best, and at worst
+      # it is what it was on 2026-08-15: a 403 from Google's
+      # chrome-for-testing bucket failed `npm ci` outright, on a PR that only
+      # repinned a workflow ref.
+      #
+      # package.json's allowScripts block is supposed to block that postinstall,
+      # and usually does. It is not reliable: the same commit failed with the
+      # script running, then passed on a bare re-run with npm reporting it
+      # skipped as "not yet covered by allowScripts". This env var does not
+      # depend on that policy engaging.
+      #
+      # Safe for ci-extras.yml too, which sets it and still installs Chrome:
+      # PUPPETEER_SKIP_DOWNLOAD is only consulted by the postinstall path and
+      # by `puppeteer browsers install` with NO browser argument. Given an
+      # explicit `chrome`, the CLI installs unconditionally
+      # (@puppeteer/browsers CLI.js -- the guard is `if (pinnedBrowsers &&
+      # !args.browser)`). Verified both ways before relying on it.
+      extra-env: PUPPETEER_SKIP_DOWNLOAD=1
