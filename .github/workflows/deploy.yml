@@ -1,0 +1,54 @@
+name: Deploy
+
+# Deploys to Cloudflare Pages with this repo's own scoped API token, replacing
+# Cloudflare's dashboard Git integration.
+#
+# Triggers on push to ANY branch, which is what the Git integration did: a
+# branch pushed without a PR still got a preview. --branch decides the rest --
+# equal to main it deploys production, anything else becomes a preview at
+# <branch>.borderline-golf.pages.dev.
+#
+# Two things this repo needs that the earlier migrations did not:
+#
+# PUPPETEER_SKIP_DOWNLOAD, for the same reason ci.yml sets it: puppeteer's
+# postinstall downloads a Chrome build during `npm ci`, this job never launches
+# a browser, and on 2026-08-15 that download 403'd from Google's bucket and
+# failed `npm ci` outright.
+#
+# VITE_POSTHOG_KEY, because it is read through import.meta.env and therefore
+# INLINED AT BUILD TIME. Cloudflare supplied it while Cloudflare did the build;
+# now that the build happens here, it has to come from here or analytics simply
+# stop with nothing failing. Production only, matching the behaviour
+# src/analytics.ts documents -- a preview must not file events against the real
+# game.
+#
+# It is a repository VARIABLE rather than a secret on purpose. A PostHog project
+# key is write-only ingest and ships inlined in the client bundle to every
+# visitor; it is currently readable in /assets/index-*.js on borderline.golf.
+# Storing it as a secret would imply a confidentiality it does not have.
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  deploy:
+    uses: jcwearn/workflows/.github/workflows/cloudflare-pages-deploy.yaml@v1
+    with:
+      # The PROJECT name, not the repo name. See wrangler.toml.
+      project-name: borderline-golf
+      # Four-stage build plus the generated-data step; the shared default of 10
+      # is the same one ci.yml already raises to 15 here.
+      timeout-minutes: 15
+      # The blank line a non-production branch produces is ignored by the
+      # extra-env action, so this cleanly sets nothing on previews.
+      extra-env: |
+        PUPPETEER_SKIP_DOWNLOAD=1
+        ${{ github.ref_name == 'main' && format('VITE_POSTHOG_KEY={0}', vars.VITE_POSTHOG_KEY) || '' }}
+    secrets:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

@@ -1,4 +1,12 @@
-name = "borderline"
+# The Cloudflare Pages PROJECT name, which is NOT this repo's name. The repo is
+# borderline; the project has always been borderline-golf.
+#
+# This line said "borderline" until 2026-08-19 and was harmless only because the
+# dashboard Git integration never read it. Now that deploys run `wrangler pages
+# deploy`, it is load-bearing: wrangler CREATES a project that does not exist
+# rather than failing, so the old value would have made a second, empty project
+# while borderline.golf quietly kept serving its last build.
+name = "borderline-golf"
 pages_build_output_dir = "dist"
 compatibility_date = "2026-01-01"
 
