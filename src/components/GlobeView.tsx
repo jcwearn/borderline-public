@@ -657,6 +657,7 @@ export default function GlobeView({
   // Run the ring while a press is held. Completing it is what buys the name.
   useEffect(() => {
     if (!hold) {
+      // oxlint-disable-next-line react/set-state-in-effect
       setProgress(0)
       return
     }

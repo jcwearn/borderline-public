@@ -244,6 +244,7 @@ export default function App() {
 
   useEffect(() => {
     const abort = new AbortController()
+    // oxlint-disable-next-line react/set-state-in-effect
     setFailure(null)
 
     // The globe geometry is wanted whichever mode this is, and must survive a
@@ -279,6 +280,7 @@ export default function App() {
     if (entry.mode !== 'free' || !entry.recipe) return
     const built = buildPuzzle(entry.recipe)
     if ('error' in built) {
+      // oxlint-disable-next-line react/set-state-in-effect
       setFailure(`That free play link does not work: ${built.error}`)
       setBuilding(false)
       return
@@ -298,13 +300,14 @@ export default function App() {
   useEffect(() => {
     if (state?.status !== 'won') return
     const record = recordWin(state)
+    // oxlint-disable-next-line react/set-state-in-effect
     setStats(record)
     track('round_won', { ...resultProps(state), elapsed_ms: Date.now() - startedAt.current })
     // `recordWin` refuses a free round, so this reports the daily's record only.
     if (!state.puzzle.free) setRecord(record)
     const timer = setTimeout(() => setShowResult(true), 900)
     return () => clearTimeout(timer)
-  }, [state?.status, state])
+  }, [state])
 
   // Walking away is the one thing a player does that leaves no trace, so it is
   // reported on the way out — otherwise giving up is only visible as an absence,

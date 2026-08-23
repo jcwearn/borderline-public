@@ -40,6 +40,22 @@
     // exported beside a component, either of which breaks fast refresh.
     "react/only-export-components": ["error", { "allowConstantExport": true }],
 
+    // Off because its model of an "extra" dependency has no room for the one
+    // this repo leans on: a dep listed purely to re-run the effect, not because
+    // the body reads it. `attempt_` in App.tsx is nothing BUT that -- a counter
+    // whose only other mention is the dep array it sits in, which is how a
+    // retry refetches the daily; GlobeView keys its label layout on `width` and
+    // `height` so a resize relays the names, which the memoized callback's
+    // identity cannot tell it. Delete either to satisfy the rule and the
+    // feature quietly stops working. eslint's exhaustive-deps allows extra deps
+    // for exactly this reason; this rule does not, and takes no options, so
+    // "off" is the only lever.
+    //
+    // Its third finding here was a fair catch and is fixed rather than
+    // silenced: `[state?.status, state]` listed a field beside the object that
+    // already covers it.
+    "react/exhaustive-effect-dependencies": "off",
+
     // A naming preference rather than a defect, and it fights two deliberate
     // conventions here. __BUILD_ID__ is a Vite `define` (vite.config.ts:10)
     // where the double underscore is the universal spelling, and `head_` in
