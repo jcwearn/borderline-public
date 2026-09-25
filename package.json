@@ -34,18 +34,18 @@
     "topojson-client": "^3.1.0"
   },
   "devDependencies": {
-    "@types/node": "24.13.5",
+    "@types/node": "24.13.6",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@types/three": "0.186.0",
     "@types/topojson-client": "3.1.5",
     "@vitejs/plugin-react": "6.1.1",
     "oxlint": "1.83.0",
-    "prettier": "3.9.7",
+    "prettier": "3.9.8",
     "puppeteer": "25.11.0",
     "typescript": "7.0.2",
     "vite": "8.3.0",
     "vitest": "5.0.1",
-    "wrangler": "4.133.0"
+    "wrangler": "4.136.1"
   }
 }
