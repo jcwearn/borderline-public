@@ -45,7 +45,7 @@
     "puppeteer": "25.14.0",
     "typescript": "7.0.2",
     "vite": "8.3.4",
-    "vitest": "5.0.4",
+    "vitest": "5.0.5",
     "wrangler": "4.151.0"
   }
 }
