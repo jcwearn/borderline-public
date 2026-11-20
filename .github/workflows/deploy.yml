@@ -37,7 +37,7 @@ permissions:
 
 jobs:
   deploy:
-    uses: jcwearn/workflows/.github/workflows/cloudflare-pages-deploy.yaml@16caf1d15aa256795a280d636614396888b1e13b # v1.8.12
+    uses: jcwearn/workflows/.github/workflows/cloudflare-pages-deploy.yaml@176eacdd90dc808846cb58ab564ad4cedfdc1e0c # v1.8.13
     with:
       # The PROJECT name, not the repo name. See wrangler.toml.
       project-name: borderline-golf
